@@ -645,6 +645,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1244,10 +1245,11 @@ exports.push([module.i, "\n.hero-section[data-v-7abcea40] { height: 20vh; backgr
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Potta+One&display=swap);", ""]);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#navbarSupportedContent ul {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    background-color: #999999;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: white;\r\n    padding: 20px;\n}\n.nav-link:hover {\r\n    color: grey;\r\n    background-color: white;\n}\r\n", ""]);
+exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#navbarSupportedContent ul {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    background-color: #999999;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: white;\r\n    padding: 20px;\n}\n.nav-link:hover {\r\n    color: grey;\r\n    background-color: white;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\r\n", ""]);
 
 // exports
 
