@@ -3764,7 +3764,7 @@ var render = function() {
                         _c(
                           "span",
                           { staticClass: "small-text text-muted float-right" },
-                          [_vm._v("$ " + _vm._s(product.price))]
+                          [_vm._v(_vm._s(product.price) + " SEK")]
                         )
                       ]),
                       _vm._v(" "),
@@ -4178,7 +4178,7 @@ var render = function() {
           _vm._v(" "),
           _c("h4", [
             _c("span", { staticClass: "small-text text-muted float-left" }, [
-              _vm._v("$ " + _vm._s(_vm.product.price))
+              _vm._v(_vm._s(_vm.product.price) + " SEK")
             ]),
             _vm._v(" "),
             _c("span", { staticClass: "small-text float-right" }, [
@@ -4253,7 +4253,7 @@ var render = function() {
                     _c("br"),
                     _vm._v(" "),
                     _c("span", { staticClass: "small-text text-muted" }, [
-                      _vm._v("$ " + _vm._s(order.product.price))
+                      _vm._v(_vm._s(order.product.price) + " sek")
                     ])
                   ]),
                   _vm._v(" "),
