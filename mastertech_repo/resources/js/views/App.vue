@@ -2,10 +2,14 @@
         <div>
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
                 <div class="container">
-                <router-link :to="{name: 'home'}" class="navbar-brand">MasterTech</router-link>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <router-link :to="{name: 'home'}" class="navbar-brand">MasterTech.se</router-link>
+                  <span v-if="isLoggedIn" class="isLoggedin">
+                                <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Välkommen, {{name}}</router-link>
+                                <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Välkommen, {{name}}</router-link>
+                            </span>
+                   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </button> -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
@@ -14,10 +18,6 @@
                         <ul class="navbar-nav ml-auto">
                             <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
                             <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
-                            <span v-if="isLoggedIn">
-                                <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hi, {{name}}</router-link>
-                                <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hi, {{name}}</router-link>
-                            </span>
                             <li class="nav-link" v-if="isLoggedIn" @click="logout"> Logout</li>
                         </ul>
                     </div>
@@ -69,6 +69,11 @@ export default {
 .container {
     font-family: 'Roboto', sans-serif;
 }
+
+.isLoggedin a {
+    color: white;
+}
+
 nav {
     width: 100%;
     background-color: black;
@@ -78,6 +83,7 @@ nav {
 
 nav .container a {
     text-decoration: none;
+    list-style: none;
 }
 
 #navbarSupportedContent {
@@ -91,20 +97,23 @@ nav .container a {
     margin: 0;
     display: flex;
     padding: 0;
-    background-color: #999999;
+    background-color: white;
 }
 
 .nav-link {
     width: 20%;
     height: 20px;
     text-align: center;
-    color: white;
-    padding: 20px;
+    color: black;
+    padding: 10px;
+    list-style: none;
 }
 
 .nav-link:hover {
-    color: grey;
-    background-color: white;
+    color: white;
+    background-color: #0c2a35;
+    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    cursor: pointer;
 }
 
 .navbar-brand {
@@ -112,5 +121,9 @@ nav .container a {
     font-size: 24px;
     color: white;
     padding: 15px;
+}
+
+span {
+    list-style: none;
 }
 </style>

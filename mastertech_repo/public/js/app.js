@@ -859,6 +859,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1249,7 +1262,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Po
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#navbarSupportedContent ul {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    background-color: #999999;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: white;\r\n    padding: 20px;\n}\n.nav-link:hover {\r\n    color: grey;\r\n    background-color: white;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\n.isLoggedin a {\r\n    color: white;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\r\n    list-style: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#navbarSupportedContent ul {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    background-color: white;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: black;\r\n    padding: 10px;\r\n    list-style: none;\n}\n.nav-link:hover {\r\n    color: white;\r\n    background-color: #0c2a35;\r\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\r\n    cursor: pointer;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\nspan {\r\n    list-style: none;\n}\r\n", ""]);
 
 // exports
 
@@ -1304,9 +1317,10 @@ exports.push([module.i, "\n.medium-text[data-v-fcfd5b58] { font-size: 36px;\n}\n
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);", ""]);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Potta+One&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.small-text[data-v-63cd6604] {\n    font-size: 14px;\n}\n.product-box[data-v-63cd6604] {\n    border: 1px solid #cccccc;\n    padding: 10px 15px;\n}\n.hero-section[data-v-63cd6604] {\n    height: fit-content;\n    align-items: center;\n}\n.title[data-v-63cd6604] {\n    font-family: 'Roboto', sans-serif;\n    font-size: 60px;\n}\n.row[data-v-63cd6604] {\n    display: flex;\n    width: 100%;\n    flex-wrap: wrap;\n}\n", ""]);
+exports.push([module.i, "\na[data-v-63cd6604] {\n    text-decoration: none;\n}\n.small-text[data-v-63cd6604] {\n    font-size: 14px;\n}\n.prod-img-container[data-v-63cd6604] {\n    width: 300px;\n    height: 450px;\n    display: flex;\n    align-items: baseline;\n    justify-content: center;\n}\n.product-img[data-v-63cd6604] {\n    width: 100%;\n    object-fit: contain;\n    transition: transform .2s;\n}\n.product-img[data-v-63cd6604]:hover {\n    transform: scale(1.1);\n}\n.hero-section[data-v-63cd6604] {\n    height: fit-content;\n    align-items: center;\n}\n.title[data-v-63cd6604] {\n    font-family: 'Roboto', sans-serif;\n    font-size: 30px;\n    text-align: center;\n}\n.col-md-12[data-v-63cd6604] {\n    padding-left: 5vw;\n    padding-right: 5vw;\n}\n.row[data-v-63cd6604] {\n    display: flex;\n    width: 100%;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    font-family: 'Roboto', sans-serif;\n}\n.banner[data-v-63cd6604] {\n    width: 100%;\n}\n.product-box[data-v-63cd6604] {\n    min-width: 350px;\n    height: 550px;\n    display: flex;\n    align-items: center;\n    margin: 25px;\n}\n.product-box h5[data-v-63cd6604] {\n    width: 100%;\n    margin: 0;\n    color: black;\n    text-decoration: none;\n    display: flex;\n    flex-direction: column;\n    font-size: 16px;\n    padding-top: 15px;\n    padding-bottom: 15px;\n}\n.product-box h5 span[data-v-63cd6604] {\n    text-decoration: none;\n    font-size: 16px;\n    padding: 5px;\n}\n.product-info-container[data-v-63cd6604] {\n    width: 100%;\n    height: 100%;\n}\n.buynow[data-v-63cd6604] {\n    width: 100%;\n    border: none;\n    height: 5vh;\n    background-color: #0c2a35;\n    color: white;\n    font-weight: 300;\n    transition: transform .2s;\n}\n.buynow[data-v-63cd6604]:hover {\n    transition: scale(1.2);\n    cursor: pointer;\n}\n.rea[data-v-63cd6604] {\n    background-color: black;\n    color:white;\n    font-family: 'Roboto', sans-serif;\n    font-size: 24px;\n    text-align: center;\n}\n\n", ""]);
 
 // exports
 
@@ -3360,10 +3374,39 @@ var render = function() {
             _c(
               "router-link",
               { staticClass: "navbar-brand", attrs: { to: { name: "home" } } },
-              [_vm._v("MasterTech")]
+              [_vm._v("MasterTech.se")]
             ),
             _vm._v(" "),
-            _vm._m(0),
+            _vm.isLoggedIn
+              ? _c(
+                  "span",
+                  { staticClass: "isLoggedin" },
+                  [
+                    _vm.user_type == 0
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: { name: "userboard" } }
+                          },
+                          [_vm._v(" Välkommen, " + _vm._s(_vm.name))]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.user_type == 1
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: { name: "admin" } }
+                          },
+                          [_vm._v(" Välkommen, " + _vm._s(_vm.name))]
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "div",
@@ -3402,36 +3445,6 @@ var render = function() {
                     _vm._v(" "),
                     _vm.isLoggedIn
                       ? _c(
-                          "span",
-                          [
-                            _vm.user_type == 0
-                              ? _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { to: { name: "userboard" } }
-                                  },
-                                  [_vm._v(" Hi, " + _vm._s(_vm.name))]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.user_type == 1
-                              ? _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "nav-link",
-                                    attrs: { to: { name: "admin" } }
-                                  },
-                                  [_vm._v(" Hi, " + _vm._s(_vm.name))]
-                                )
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isLoggedIn
-                      ? _c(
                           "li",
                           {
                             staticClass: "nav-link",
@@ -3459,28 +3472,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -3733,9 +3725,43 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "rea" },
+        [
+          _c(
+            "marquee",
+            {
+              attrs: {
+                direction: "left",
+                height: "28",
+                width: "100%",
+                bgcolor: "black"
+              }
+            },
+            [
+              _vm._v(
+                "\n            Mellandagsrea 2020 - Mellandagsrea har för många blivit en lika självklar tradition precis som julhandeln. \n            Det gäller givetvis även för oss på MasterTech. På vår mellandagsrea kan du runda av \n            året med att köpa det där som du verkligen ville ha men kanske inte fick i jul.\n            "
+              )
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "banner",
+        attrs: {
+          src:
+            "https://nextshop.pk/wp-content/uploads/2018/08/New-Refurbished-Banner.jpg",
+          alt: "tech-banner",
+          border: "0"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
           _c(
@@ -3751,37 +3777,48 @@ var render = function() {
                 },
                 [
                   _c(
-                    "router-link",
-                    { attrs: { to: { path: "/products/" + product.id } } },
+                    "div",
+                    { staticClass: "product-info-container" },
                     [
-                      _c("img", {
-                        attrs: { src: product.image, alt: product.name }
-                      }),
-                      _vm._v(" "),
-                      _c("h5", [
-                        _c("span", {
-                          domProps: { innerHTML: _vm._s(product.name) }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          { staticClass: "small-text text-muted float-right" },
-                          [_vm._v(_vm._s(product.price) + " SEK")]
-                        )
-                      ]),
-                      _vm._v(" "),
                       _c(
-                        "button",
-                        {
-                          staticClass:
-                            "col-md-4 btn btn-sm btn-primary float-right"
-                        },
-                        [_vm._v("Buy Now")]
+                        "router-link",
+                        { attrs: { to: { path: "/products/" + product.id } } },
+                        [
+                          _c("div", { staticClass: "prod-img-container" }, [
+                            _c("img", {
+                              staticClass: "product-img",
+                              attrs: { src: product.image, alt: product.name }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("h5", [
+                            _c("span", {
+                              domProps: { innerHTML: _vm._s(product.name) }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "small-text text-muted float-right"
+                              },
+                              [_vm._v(_vm._s(product.price) + " SEK")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "col-md-4 btn btn-sm btn-primary float-right buynow"
+                            },
+                            [_vm._v("Buy Now")]
+                          )
+                        ]
                       )
-                    ]
+                    ],
+                    1
                   )
-                ],
-                1
+                ]
               )
             }),
             0
@@ -3802,7 +3839,11 @@ var staticRenderFns = [
         staticClass:
           "container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto"
       },
-      [_c("h2", { staticClass: "title" }, [_vm._v("MasterTech")])]
+      [
+        _c("h2", { staticClass: "title" }, [_vm._v("Våra produkter")]),
+        _vm._v(" "),
+        _c("hr")
+      ]
     )
   }
 ]

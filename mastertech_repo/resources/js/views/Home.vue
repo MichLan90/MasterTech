@@ -1,20 +1,33 @@
   <template>
         <div>
-            <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
-                <h2 class="title">MasterTech</h2>
-            </div>
             <div class="container">
+                <div class="rea">
+                    <marquee direction="left" height="28" width="100%" bgcolor="black">
+                    Mellandagsrea 2020 - Mellandagsrea har för många blivit en lika självklar tradition precis som julhandeln. 
+                    Det gäller givetvis även för oss på MasterTech. På vår mellandagsrea kan du runda av 
+                    året med att köpa det där som du verkligen ville ha men kanske inte fick i jul.
+                    </marquee>
+                </div>
+              <img src="https://nextshop.pk/wp-content/uploads/2018/08/New-Refurbished-Banner.jpg" class="banner" alt="tech-banner" border="0">
+            <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
+                <h2 class="title">Våra produkter</h2>
+                <hr>
+            </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-4 product-box" v-for="(product,index) in products" @key="index" v-bind:key="product">
-                                <router-link :to="{ path: '/products/'+product.id}">
-                                    <img :src="product.image" :alt="product.name">
+                                <div class="product-info-container">
+                                  <router-link :to="{ path: '/products/'+product.id}">
+                                    <div class="prod-img-container">
+                                    <img :src="product.image" :alt="product.name" class="product-img">
+                                    </div>
                                     <h5><span v-html="product.name"></span>
                                         <span class="small-text text-muted float-right">{{product.price}} SEK</span>
                                     </h5>
-                                    <button class="col-md-4 btn btn-sm btn-primary float-right">Buy Now</button>
-                                </router-link>
+                                    <button class="col-md-4 btn btn-sm btn-primary float-right buynow">Buy Now</button>
+                                 </router-link>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -37,26 +50,114 @@
     </script>
     <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+    
+    a {
+        text-decoration: none;
+    }
 
     .small-text {
         font-size: 14px;
     }
-    .product-box {
-        border: 1px solid #cccccc;
-        padding: 10px 15px;
+
+    .prod-img-container {
+        width: 300px;
+        height: 450px;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
     }
+
+    .product-img {
+        width: 100%;
+        object-fit: contain;
+        transition: transform .2s; 
+    }
+
+    .product-img:hover {
+        transform: scale(1.1);
+    }
+
     .hero-section {
         height: fit-content;
         align-items: center;
     }
     .title {
         font-family: 'Roboto', sans-serif;
-        font-size: 60px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .col-md-12 {
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
 
     .row {
         display: flex;
         width: 100%;
+        justify-content: space-between;
         flex-wrap: wrap;
+        font-family: 'Roboto', sans-serif;
     }
+
+    .banner {
+        width: 100%;
+    }
+    
+    .product-box {
+        min-width: 350px;
+        height: 550px;
+        display: flex;
+        align-items: center;
+        margin: 25px;
+    }
+
+    .product-box h5 {
+        width: 100%;
+        margin: 0;
+        color: black;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .product-box h5 span {
+        text-decoration: none;
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .product-info-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .buynow {
+        width: 100%;
+        border: none;
+        height: 5vh;
+        background-color: #0c2a35;
+        color: white;
+        font-weight: 300;
+        transition: transform .2s; 
+    }
+
+    .buynow:hover {
+        transition: scale(1.2);
+        cursor: pointer;
+    }
+
+    .rea {
+        background-color: black;
+        color:white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        text-align: center;
+
+    }
+
     </style>
