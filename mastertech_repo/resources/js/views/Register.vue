@@ -3,7 +3,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card card-default">
-                        <div class="card-header">Register</div>
+                        <div class="card-header"><img src="https://img.icons8.com/ios-filled/50/000000/add-user-male.png"/></div>
                         <div class="card-body">
                             <form>
                                 <div class="form-group row">

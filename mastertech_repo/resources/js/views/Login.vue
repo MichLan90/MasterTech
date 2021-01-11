@@ -3,17 +3,17 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card card-default">
-                        <div class="card-header">Login</div>
+                        <div><img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png"/></div>
                         <div class="card-body">
                             <form>
                                 <div class="form-group row">
-                                    <label for="email" class="col-sm-4 col-form-label text-md-right">E-Mail Address</label>
+                                    <label for="email" class="col-sm-4 col-form-label text-md-right">E-Mail</label>
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control" v-model="email" required autofocus>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">Lösenord</label>
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control" v-model="password" required>
                                     </div>
@@ -68,3 +68,48 @@
             }
         }
     </script>
+
+    <style>
+    .card {
+        width: 100%;
+        height: 450px;
+        text-align: center;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0 auto;
+        background-color: #0c2a35;
+        color: white;
+        padding-top: 45px;
+    }
+
+    .form-group {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .col-md-8 {
+        margin-bottom: 150px;
+    }
+
+    .btn-primary {
+        border: none;
+        background-color: black;
+        color: white;
+        width: 100px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    .btn-primary:hover {
+        transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        background-color: white;
+        color: black;
+    }
+
+    input {
+        border-radius: 5px;
+    }
+    </style>
