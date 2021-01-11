@@ -2,7 +2,7 @@
         <div>
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
                 <div class="container">
-                    <router-link :to="{name: 'home'}" class="navbar-brand">Big Store</router-link>
+                    <router-link :to="{name: 'home'}" class="navbar-brand">MasterTech</router-link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -60,3 +60,48 @@ export default {
     }
 }
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.container {
+    font-family: 'Roboto', sans-serif;
+}
+nav {
+    width: 100%;
+    background-color: black;
+    color: white;
+    margin: 0;
+}
+
+nav .container a {
+    text-decoration: none;
+}
+
+#navbarSupportedContent {
+    width: 100%;
+    display: flex;
+}
+
+#navbarSupportedContent ul {
+    width: 50%;
+    justify-content: flex-end;
+    margin: 0;
+    display: flex;
+    padding: 0;
+    background-color: #999999;
+}
+
+.nav-link {
+    width: 20%;
+    height: 20px;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.nav-link:hover {
+    color: grey;
+    background-color: white;
+}
+</style>

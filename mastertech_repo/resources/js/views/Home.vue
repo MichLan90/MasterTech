@@ -1,7 +1,7 @@
   <template>
         <div>
             <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
-                <h2 class="title">Welcome to the MasterTech TEST</h2>
+                <h2 class="title">MasterTech</h2>
             </div>
             <div class="container">
                 <div class="row">
@@ -36,6 +36,8 @@
         }
     </script>
     <style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
     .small-text {
         font-size: 14px;
     }
@@ -44,14 +46,17 @@
         padding: 10px 15px;
     }
     .hero-section {
-        height: 30vh;
-        background: black;
+        height: fit-content;
         align-items: center;
-        margin-bottom: 20px;
-        margin-top: -20px;
     }
     .title {
+        font-family: 'Roboto', sans-serif;
         font-size: 60px;
-        color: #ffffff;
+    }
+
+    .row {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
     }
     </style>
