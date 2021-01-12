@@ -1107,8 +1107,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1136,6 +1134,42 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1358,7 +1392,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.small-text[data-v-55d32178] { font-size: 18px;\n}\n.title[data-v-55d32178] { font-size: 36px;\n}\n", ""]);
+exports.push([module.i, "\n.single-page-container[data-v-55d32178] {\n    display: flex;\n    flex-wrap: wrap;\n}\n.flex-child[data-v-55d32178] {\n    min-width: 200px;\n}\n", ""]);
 
 // exports
 
@@ -1374,10 +1408,11 @@ exports.push([module.i, "\n.small-text[data-v-55d32178] { font-size: 18px;\n}\n.
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);", ""]);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Potta+One&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.small-text[data-v-2f42e64c] { font-size: 14px;\n}\n.product-box[data-v-2f42e64c] { border: 1px solid #cccccc; padding: 10px 15px;\n}\n.hero-section[data-v-2f42e64c] { background: #ababab; height: 20vh; align-items: center; margin-bottom: 20px; margin-top: -20px;\n}\n.title[data-v-2f42e64c] { font-size: 60px; color: #ffffff;\n}\n", ""]);
+exports.push([module.i, "\n.ub-container[data-v-2f42e64c] {\n    border: 1px solid black;\n    margin: 20px;\n}\n.ub-productb[data-v-2f42e64c] {\n    padding: 15px;\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    border-bottom: 1px solid black;\n}\n.ub-img[data-v-2f42e64c] {\n    width: 80px;\n}\n.ub-title[data-v-2f42e64c], .ub-price[data-v-2f42e64c] {\n    padding: 15px;\n    min-width: 150px;\n}\n.ub-quant[data-v-2f42e64c] {\n    font-size: 12px;\n       min-width: 150px;\n}\n.title[data-v-2f42e64c] {\n    font-family: 'Roboto', sans-serif;\n    font-size: 30px;\n    text-align: center;\n}\nspan[data-v-2f42e64c] {\n    padding: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -3860,7 +3895,7 @@ var render = function() {
                               staticClass:
                                 "col-md-4 btn btn-sm btn-primary float-right buynow"
                             },
-                            [_vm._v("Buy Now")]
+                            [_vm._v("Visa mer >>>")]
                           )
                         ]
                       )
@@ -4277,50 +4312,49 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-8 offset-md-2" },
-        [
-          _c("img", {
-            attrs: { src: _vm.product.image, alt: _vm.product.name }
-          }),
-          _vm._v(" "),
-          _c("h3", {
-            staticClass: "title",
-            domProps: { innerHTML: _vm._s(_vm.product.name) }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-muted" }, [
-            _vm._v(_vm._s(_vm.product.description))
-          ]),
-          _vm._v(" "),
-          _c("h4", [
-            _c("span", { staticClass: "small-text text-muted float-left" }, [
-              _vm._v(_vm._s(_vm.product.price) + " SEK")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "small-text float-right" }, [
-              _vm._v("Available Quantity: " + _vm._s(_vm.product.units))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "col-md-4 btn btn-sm btn-primary float-right",
-              attrs: { to: { path: "/checkout?pid=" + _vm.product.id } }
-            },
-            [_vm._v("Buy Now")]
-          )
-        ],
-        1
-      )
-    ])
+    _c(
+      "div",
+      { staticClass: "row single-page-container" },
+      [
+        _c("img", {
+          staticClass: "flex-child",
+          attrs: { src: _vm.product.image, alt: _vm.product.name }
+        }),
+        _vm._v(" "),
+        _c("h3", {
+          staticClass: "title flex-child",
+          domProps: { innerHTML: _vm._s(_vm.product.name) }
+        }),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-muted flex-child" }, [
+          _vm._v(_vm._s(_vm.product.description))
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          { staticClass: "small-text text-muted float-left flex-child" },
+          [_vm._v(_vm._s(_vm.product.price) + " SEK")]
+        ),
+        _vm._v(" "),
+        _c("span", { staticClass: "small-text float-right flex-child" }, [
+          _vm._v("Available Quantity: " + _vm._s(_vm.product.units))
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "col-md-4 btn btn-sm btn-primary float-right",
+            attrs: { to: { path: "/checkout?pid=" + _vm.product.id } }
+          },
+          [_vm._v("Buy Now")]
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -4355,53 +4389,64 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "row" },
+            { staticClass: "row ub-container" },
             _vm._l(_vm.orders, function(order, index) {
               return _c(
                 "div",
-                { staticClass: "col-md-4 product-box", on: { key: index } },
+                {
+                  staticClass: "col-md-4 product-box ub-productb",
+                  on: { key: index }
+                },
                 [
                   _c("img", {
+                    staticClass: "ub-img",
                     attrs: { src: order.product.image, alt: order.product.name }
                   }),
                   _vm._v(" "),
                   _c("h5", [
                     _c("span", {
+                      staticClass: "ub-title",
                       domProps: { innerHTML: _vm._s(order.product.name) }
                     }),
                     _c("br"),
                     _vm._v(" "),
-                    _c("span", { staticClass: "small-text text-muted" }, [
-                      _vm._v(_vm._s(order.product.price) + " sek")
-                    ])
+                    _c(
+                      "span",
+                      { staticClass: "small-text text-muted ub-price" },
+                      [_vm._v(_vm._s(order.product.price) + " sek")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("hr"),
                   _vm._v(" "),
-                  _c("span", { staticClass: "small-text text-muted" }, [
+                  _c("span", { staticClass: "ub-quant" }, [
+                    _c("b", [_vm._v("Antal")]),
                     _vm._v(
-                      "Quantity: " +
+                      ": " +
                         _vm._s(order.quantity) +
                         "\n                            "
                     ),
-                    _c("span", { staticClass: "float-right" }, [
-                      _vm._v(
-                        _vm._s(
-                          order.is_delivered == 1 ? "shipped!" : "not shipped"
-                        )
-                      )
+                    _c("p", { staticClass: "ub-delivery" }, [
+                      _c("strong", [_vm._v("Adress:")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(_vm._s(order.address))
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("br"),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c("strong", [_vm._v("Delivery address:")]),
-                    _vm._v(" "),
+                  _c("span", { staticClass: "float-right ub-quant" }, [
+                    _c("b", [_vm._v("Leveransstatus:")]),
                     _c("br"),
-                    _vm._v(_vm._s(order.address))
-                  ])
+                    _vm._v(
+                      " " +
+                        _vm._s(
+                          order.is_delivered == 1 ? "Levererad" : "Ej levererad"
+                        )
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _c("br")
                 ]
               )
             }),
@@ -4423,7 +4468,11 @@ var staticRenderFns = [
         staticClass:
           "container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto"
       },
-      [_c("h2", { staticClass: "title" }, [_vm._v("All your orders")])]
+      [
+        _c("h2", { staticClass: "title" }, [_vm._v("Mina beställningar")]),
+        _vm._v(" "),
+        _c("hr")
+      ]
     )
   }
 ]

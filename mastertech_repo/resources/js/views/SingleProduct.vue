@@ -2,19 +2,17 @@
 
         <div class="container">
 
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <img :src="product.image" :alt="product.name">
-                    <h3 class="title" v-html="product.name"></h3>
-                    <p class="text-muted">{{product.description}}</p>
-                    <h4>
-                        <span class="small-text text-muted float-left">{{product.price}} SEK</span>
-                        <span class="small-text float-right">Available Quantity: {{product.units}}</span>
-                    </h4>
+            <div class="row single-page-container">
+
+                    <img :src="product.image" :alt="product.name" class="flex-child">
+                    <h3 class="title flex-child" v-html="product.name"></h3>
+                    <p class="text-muted flex-child">{{product.description}}</p>
+                        <span class="small-text text-muted float-left flex-child">{{product.price}} SEK</span>
+                        <span class="small-text float-right flex-child">Available Quantity: {{product.units}}</span>
                     <br>
                     <hr>
                     <router-link :to="{ path: '/checkout?pid='+product.id }" class="col-md-4 btn btn-sm btn-primary float-right">Buy Now</router-link>
-                </div>
+
             </div>
         </div>
     </template>
@@ -34,6 +32,12 @@
     </script>
 
     <style scoped>
-    .small-text { font-size: 18px; }
-    .title { font-size: 36px; }
+    .single-page-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flex-child {
+        min-width: 200px;
+    }
     </style>

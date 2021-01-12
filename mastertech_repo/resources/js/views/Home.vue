@@ -25,7 +25,7 @@
                                     <h5><span v-html="product.name"></span>
                                         <span class="small-text text-muted float-right">{{product.price}} SEK</span>
                                     </h5>
-                                    <button class="col-md-4 btn btn-sm btn-primary float-right buynow">Buy Now</button>
+                                    <button class="col-md-4 btn btn-sm btn-primary float-right buynow">Visa mer >>></button>
                                  </router-link>
                                 </div>
                             </div>
