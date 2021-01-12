@@ -1339,7 +1339,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.card {\n    width: 100%;\n    height: 450px;\n    text-align: center;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    margin: 0 auto;\n    background-color: #0c2a35;\n    color: white;\n    padding-top: 45px;\n}\n.form-group {\n    margin-top: 20px;\n    margin-bottom: 20px;\n    font-weight: bold;\n}\n.col-md-8 {\n    margin-bottom: 150px;\n}\n.btn-primary {\n    border: none;\n    background-color: black;\n    color: white;\n    width: 100px;\n    height: 50px;\n    border-radius: 10px;\n}\n.btn-primary:hover {\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\n    background-color: white;\n    color: black;\n}\ninput {\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.card {\n    width: 100%;\n    height: 450px;\n    text-align: center;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    margin: 0 auto;\n    background-color: #0c2a35;\n    color: white;\n    padding-top: 45px;\n}\n.form-group {\n    margin-top: 20px;\n    margin-bottom: 20px;\n    font-weight: bold;\n}\n.col-md-8 {\n    margin-bottom: 150px;\n}\n.button-style {\n    border: none;\n    background-color: black;\n    color: white;\n    width: 100px;\n    height: 50px;\n    border-radius: 10px;\n}\n.button-style:hover {\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\n    background-color: white;\n    color: black;\n}\n.button-style:active {\n    font-size: 10px;\n}\ninput {\n    border-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -4005,7 +4005,7 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-primary button-style",
                       attrs: { type: "submit" },
                       on: { click: _vm.handleSubmit }
                     },
@@ -4075,7 +4075,7 @@ var render = function() {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "name" }
                   },
-                  [_vm._v("Name")]
+                  [_vm._v("Namn")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -4115,7 +4115,7 @@ var render = function() {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "email" }
                   },
-                  [_vm._v("E-Mail Address")]
+                  [_vm._v("E-Mail")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -4150,7 +4150,7 @@ var render = function() {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "password" }
                   },
-                  [_vm._v("Password")]
+                  [_vm._v("Lösenord")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -4185,7 +4185,7 @@ var render = function() {
                     staticClass: "col-md-4 col-form-label text-md-right",
                     attrs: { for: "password-confirm" }
                   },
-                  [_vm._v("Confirm Password")]
+                  [_vm._v("Bekräfta lösenord")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-6" }, [
@@ -4222,7 +4222,7 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-primary button-style",
                       attrs: { type: "submit" },
                       on: { click: _vm.handleSubmit }
                     },

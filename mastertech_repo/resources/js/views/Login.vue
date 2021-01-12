@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary" @click="handleSubmit">
+                                        <button type="submit" class="btn btn-primary button-style" @click="handleSubmit">
                                             Login
                                         </button>
                                     </div>
@@ -94,7 +94,7 @@
         margin-bottom: 150px;
     }
 
-    .btn-primary {
+    .button-style {
         border: none;
         background-color: black;
         color: white;
@@ -103,10 +103,14 @@
         border-radius: 10px;
     }
 
-    .btn-primary:hover {
+    .button-style:hover {
         transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);
         background-color: white;
         color: black;
+    }
+
+    .button-style:active {
+        font-size: 10px;
     }
 
     input {
