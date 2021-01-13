@@ -6,6 +6,7 @@
                   <span v-if="isLoggedIn" class="isLoggedin">
                                 <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Välkommen, {{name}}</router-link>
                                 <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Välkommen, {{name}}</router-link>
+            
                             </span>
                    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -13,6 +14,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
+                            <li class="nav-link" v-if="isLoggedIn">Kundvagn:  (0)</li>
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
@@ -127,9 +129,19 @@ nav .container a {
     display: flex;
 }
 
-#navbarSupportedContent ul {
+#navbarSupportedContent .ml-auto {
     width: 50%;
     justify-content: flex-end;
+    margin: 0;
+    display: flex;
+    padding: 0;
+    color: white;
+    background-color: #0c2a35;
+}
+
+#navbarSupportedContent .mr-auto {
+    width: 50%;
+    justify-content: flex-start;
     margin: 0;
     display: flex;
     padding: 0;

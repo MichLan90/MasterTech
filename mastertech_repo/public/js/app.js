@@ -682,6 +682,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1031,10 +1033,8 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       } else {
-        var div = document.getElementById('errormsg');
-        var p = document.createElement('p');
-        p.innerText = "Glömde du att skriva användarnamn och/eller lösenord?";
-        div.append(p);
+        var p = document.getElementById('errtext');
+        p.innerText = "Vänligen fyll i ditt email och lösenord";
       }
     }
   }
@@ -1368,7 +1368,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Po
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\n.isLoggedin a {\r\n    color: white;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\r\n    list-style: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#navbarSupportedContent ul {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    color: white;\r\n    background-color: #0c2a35;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: white;\r\n    padding: 10px;\r\n    list-style: none;\n}\n.nav-link:hover {\r\n    color: white;\r\n    background-color: #3b6374;\r\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\r\n    cursor: pointer;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\nspan {\r\n    list-style: none;\n}\n.pre-footer { \r\n    text-align: center;\r\n    font-family: 'Roboto', sans-serif;\r\n    margin-top: 100px;\r\n    background-color: #0c2a35;\r\n    color: white;\r\n    width: 100%;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\n}\nfooter {\r\n    font-family: 'Roboto', sans-serif;\r\n    background-color: #3b6374;\r\n    color: #E6E6E6;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    flex-direction: row;\r\n    margin: 0;\n}\n.column {\r\n    margin: 45px;\r\n    width: 20%;\r\n    height: fit-content;\n}\n.column a {\r\n    color: white;\n}\n.social-link:hover {\r\n    background-color: white;\n}\r\n", ""]);
+exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\n.isLoggedin a {\r\n    color: white;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\r\n    list-style: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#navbarSupportedContent .ml-auto {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    color: white;\r\n    background-color: #0c2a35;\n}\n#navbarSupportedContent .mr-auto {\r\n    width: 50%;\r\n    justify-content: flex-start;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    color: white;\r\n    background-color: #0c2a35;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: white;\r\n    padding: 10px;\r\n    list-style: none;\n}\n.nav-link:hover {\r\n    color: white;\r\n    background-color: #3b6374;\r\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\r\n    cursor: pointer;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\nspan {\r\n    list-style: none;\n}\n.pre-footer { \r\n    text-align: center;\r\n    font-family: 'Roboto', sans-serif;\r\n    margin-top: 100px;\r\n    background-color: #0c2a35;\r\n    color: white;\r\n    width: 100%;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\n}\nfooter {\r\n    font-family: 'Roboto', sans-serif;\r\n    background-color: #3b6374;\r\n    color: #E6E6E6;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    flex-direction: row;\r\n    margin: 0;\n}\n.column {\r\n    margin: 45px;\r\n    width: 20%;\r\n    height: fit-content;\n}\n.column a {\r\n    color: white;\n}\n.social-link:hover {\r\n    background-color: white;\n}\r\n", ""]);
 
 // exports
 
@@ -3571,7 +3571,13 @@ var render = function() {
                 attrs: { id: "navbarSupportedContent" }
               },
               [
-                _c("ul", { staticClass: "navbar-nav mr-auto" }),
+                _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+                  _vm.isLoggedIn
+                    ? _c("li", { staticClass: "nav-link" }, [
+                        _vm._v("Kundvagn:  (0)")
+                      ])
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
                 _c(
                   "ul",
@@ -4235,7 +4241,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("div", { attrs: { id: "errormsg" } })
+                  _vm._m(1)
                 ])
               ])
             ])
@@ -4256,6 +4262,17 @@ var staticRenderFns = [
           src:
             "https://img.icons8.com/ios-filled/50/000000/user-male-circle.png"
         }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "errormsg" } }, [
+      _c("p", {
+        staticStyle: { "font-size": "14px", "margin-top": "30px" },
+        attrs: { id: "errtext" }
       })
     ])
   }
@@ -4538,7 +4555,7 @@ var render = function() {
                   "button-style col-md-4 btn btn-sm btn-primary float-right",
                 attrs: { to: { path: "/checkout?pid=" + _vm.product.id } }
               },
-              [_vm._v("Köp")]
+              [_vm._v("Lägg i kundvagnen")]
             )
           ],
           1

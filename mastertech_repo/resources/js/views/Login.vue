@@ -23,7 +23,7 @@
                                         <button type="submit" class="btn btn-primary button-style" @click="handleSubmit">
                                             Login
                                         </button>
-                                        <div id="errormsg"></div>
+                                        <div id="errormsg"><p id="errtext" style="font-size: 14px; margin-top: 30px;"></p></div>
                                     </div>
                                 </div>
                             </form>
@@ -68,10 +68,8 @@
                                     }                           
                         });
                     } else {
-                        let div = document.getElementById('errormsg')
-                        let p = document.createElement('p');
-                        p.innerText = "Glömde du att skriva användarnamn och/eller lösenord?"
-                        div.append(p)
+                        let p = document.getElementById('errtext')
+                        p.innerText = "Vänligen fyll i ditt email och lösenord"
                     }
                 }
             }

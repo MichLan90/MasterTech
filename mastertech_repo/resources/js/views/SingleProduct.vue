@@ -12,7 +12,7 @@
                         <span class="info small-text float-right"><b>Lagerstatus</b>: {{product.units}}</span>
                         <hr>
                         <div style="margin: 20px 0 20px 0; text-align: right;">
-                            <router-link :to="{ path: '/checkout?pid='+product.id }" class="button-style col-md-4 btn btn-sm btn-primary float-right">Köp</router-link>
+                            <router-link :to="{ path: '/checkout?pid='+product.id }" class="button-style col-md-4 btn btn-sm btn-primary float-right">Lägg i kundvagnen</router-link>
                         </div>
                     </div>
                     
