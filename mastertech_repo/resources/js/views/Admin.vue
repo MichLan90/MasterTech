@@ -2,16 +2,25 @@
         <div>
             <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
                 <h2 class="title">Admin Dashboard</h2>
+                <hr>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <ul style="list-style-type:none">
-                            <li class="active"><button class="btn" @click="setComponent('main')">Dashboard</button></li>
-                            <li><button class="btn" @click="setComponent('orders')">Orders</button></li>
-                            <li><button class="btn" @click="setComponent('products')">Products</button></li>
-                            <li><button class="btn" @click="setComponent('users')">Users</button></li>
-                        </ul>
+                        <span class="option-container">
+                            <div class="single-button">
+                            <li><button class="btn-admin" @click="setComponent('main')">Dashboard</button></li>
+                            </div>
+                            <div class="single-button">
+                            <li><button class="btn-admin" @click="setComponent('orders')">Orders</button></li>
+                            </div>
+                            <div class="single-button">
+                            <li><button class="btn-admin" @click="setComponent('products')">Products</button></li>
+                            </div>
+                            <div class="single-button">
+                            <li><button class="btn-admin" @click="setComponent('users')">Users</button></li>
+                            </div>
+                        </span><hr>
                     </div>
                     <div class="col-md-9">
                         <component :is="activeComponent"></component>
@@ -69,6 +78,50 @@
     </script>
 
     <style scoped>
-    .hero-section { height: 20vh; background: #ababab; align-items: center; margin-bottom: 20px; margin-top: -20px; }
-    .title { font-size: 60px; color: #ffffff; }
+      .title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .option-container {
+        list-style-type:none; 
+        padding: 0; 
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-admin {
+        border: none;
+        background-color: white;
+        width: 150px;
+        transition: transform .2s; 
+        padding: 10px;
+    }
+
+    .btn-admin:hover {
+         transform: scale(1.2);
+         background-color: #EAEAEA;
+         color: black;
+    }
+
+     .btn-admin:active {
+         background-color: grey;
+    }
+
+    .single-button {
+        display: flex;
+        width: 200px;
+    }
+
+
+    .hamburger-menu {
+        width: 24px; 
+        margin-left: 5px;
+
+    }
+
+
+
+
     </style>

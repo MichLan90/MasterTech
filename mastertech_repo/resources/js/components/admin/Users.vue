@@ -1,13 +1,13 @@
  <template>
-        <div>
-            <table class="table table-responsive table-striped">
+        <div class="main-container-admin">
+            <table>
                 <thead>
                     <tr>
                         <td></td>
-                        <td>Name</td>
-                        <td>Email</td>
-                        <td>Joined</td>
-                        <td>Total Orders</td>
+                        <td>Namn</td>
+                        <td>E-post</td>
+                        <td>Användare skapades</td>
+                        <td>Beställningar</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,3 +35,19 @@
         }
     }
     </script>
+
+      <style scoped>
+    .main-container-admin {
+        display: flex; 
+        justify-content: center;
+    }
+
+    td {
+        padding: 10px;
+        border: solid 1px black;
+    }
+
+    thead td {
+        font-weight: bold;
+    }
+    </style>

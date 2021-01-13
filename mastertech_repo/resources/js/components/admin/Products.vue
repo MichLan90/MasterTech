@@ -1,13 +1,14 @@
   <template>
-        <div>
-            <table class="table table-responsive table-striped">
+    <div>
+        <div class="main-container-admin">
+            <table>
                 <thead>
                     <tr>
                         <td></td>
-                        <td>Product</td>
-                        <td>Units</td>
-                        <td>Price</td>
-                        <td>Description</td>
+                        <td>Produkt</td>
+                        <td>Antal</td>
+                        <td>Pris</td>
+                        <td>Beskrivning</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,8 +24,11 @@
             <modal @close="endEditing" :product="editingItem" v-show="editingItem != null"></modal>
             <modal @close="addProduct"  :product="addingProduct" v-show="addingProduct != null"></modal>
             <br>
-            <button class="btn btn-primary" @click="newProduct">Add New Product</button>
         </div>
+        <div style="width: 100%; text-align: center;">
+            <button class="btn-admin btn-primary" @click="newProduct">Lägg till en produkt</button>
+        </div>
+    </div>
     </template>
     <script>
     import Modal from './ProductModal'
@@ -78,3 +82,32 @@
         }
     }
     </script>
+
+      <style scoped>
+    .main-container-admin {
+        display: flex; 
+        justify-content: center;
+    }
+
+    td {
+        padding: 10px;
+        border: solid 1px black;
+    }
+
+    thead td {
+        font-weight: bold;
+    }
+
+    
+    .btn-admin {
+        margin: 10px;
+        border: none;
+        background-color: #EAEAEA;
+        width: 150px;
+        padding: 10px;
+    }
+
+    .btn-admin:hover {
+         background-color: #CECECE;
+    }
+    </style>

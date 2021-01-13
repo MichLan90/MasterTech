@@ -1,14 +1,14 @@
 <template>
-        <div class="row">
+        <div class="row dashboard">
+        <h2>Översikt:</h2>
             <div class="col-md-4 product-box d-flex align-content-center justify-content-center flex-wrap big-text">
-                <a href='/admin/orders'>Orders ({{orders.length}})</a>
-            </div>
-            <hr>
-            <div class="col-md-4 product-box d-flex align-content-center justify-content-center flex-wrap big-text">
-                <a href='/admin/products'>Products ({{products.length}})</a>
+                <p>Beställningar: ({{orders.length}})</p>
             </div>
             <div class="col-md-4 product-box d-flex align-content-center justify-content-center flex-wrap big-text">
-                <a href='/admin/users'>Users ({{users.length}})</a>
+                <p>Produkter: ({{products.length}})</p>
+            </div>
+            <div class="col-md-4 product-box d-flex align-content-center justify-content-center flex-wrap big-text">
+                <p>Registrerade användare: ({{users.length}})</p>
             </div>
         </div>
     </template>
@@ -32,6 +32,7 @@
     </script>
 
     <style scoped>
-    .big-text { font-size: 28px; }
-    .product-box { border: 1px solid #cccccc; padding: 10px 15px; height: 20vh }
+    .dashboard {
+        margin: 30px;
+    }
     </style>

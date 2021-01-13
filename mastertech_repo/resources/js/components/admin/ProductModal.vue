@@ -7,23 +7,28 @@
                     </div>
                     <div class="modal-body">
                         <slot name="body">
-                            Name: <input type="text" v-model="data.name">
-                            Units: <input type="text" v-model="data.units">
-                            Price: <input type="text" v-model="data.price">
-                            <textarea v-model="data.description" placeholder="description"></textarea>
-                            <span >
-                                <img :src="data.image" v-show="data.image != null">
-                                <input type="file" id="file" @change="attachFile">
+                            Namn: <br><input type="text" v-model="data.name"><br>
+                            Antal: <br><input type="text" v-model="data.units"><br>
+                            Pris: <br><input type="text" v-model="data.price"><br>
+                            Beskrivning: <br><textarea v-model="data.description" placeholder="description"></textarea><br>
+                            <span >Ladd upp en bild:<br>
+                                <img :src="data.image" v-show="data.image != null"><br>
+                                <input type="file" id="file" @change="attachFile"><br>
                             </span>
                         </slot>
-                    </div>
-                    <div class="modal-footer">
                         <slot name="footer">
                             <button class="modal-default-button" @click="uploadFile">
-                                Finish
+                                Bekräfta
                             </button>
                         </slot>
                     </div>
+                    <!--<div class="modal-footer">
+                        <slot name="footer">
+                            <button style="border: none; background-color: white; font-size: 18px;" class="modal-default-button" @click="uploadFile">
+                                Bekräfta
+                            </button>
+                        </slot>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -64,6 +69,13 @@
     }
     .modal-default-button {
         float: right;
+        border: none; 
+        background-color: #EAEAEA; 
+        font-size: 14px;
+        padding: 5px;
+    }
+    .modal-default-button:hover {
+        background-color: #CECECE;
     }
     .modal-enter {
         opacity: 0;
