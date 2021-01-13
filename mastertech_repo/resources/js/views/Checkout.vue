@@ -1,43 +1,67 @@
 <template>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="order-box">
-                        <img :src="product.image" :alt="product.name">
-                        <h2 class="title" v-html="product.name"></h2>
-                        <p class="small-text text-muted float-left">$ {{product.price}}</p>
-                        <p class="small-text text-muted float-right">Available Units: {{product.units}}</p>
-                        <br>
-                        <hr>
-                        <label class="row"><span class="col-md-2 float-left">Quantity: </span><input type="number" name="units" min="1" :max="product.units" class="col-md-2 float-left" v-model="quantity" @change="checkUnits"></label>
-                    </div>
+        <div class="container main-cont">
+        <div v-if="!isLoggedIn" style="text-align: center; font-size: 22px; color: red;"><p>Du behöver vara inloggad.</p></div>
+            <div class="row prod-img-name-container">
+                        <img :src="product.image" :alt="product.name" class="single-img">
+                        <div class="title-descr">
+                            <h2 class="title" v-html="product.name"></h2>
+                            <p class="small-text text-muted"><b>Pris</b>: {{product.price}} SEK</p>
+                            <p class="small-text text-muted"><b>Lagerstatus</b>: {{product.units}}</p>
+                            <p class="small-text text-muted">Antal:
+                            <input type="number" name="units" min="1" :max="product.units" class="col-md-2 float-left" v-model="quantity" @change="checkUnits">
+                            </p>
+                            <div v-if="isLoggedIn">
+                                <div class="row">
+                                    <label for="address" class="col-md-3 col-form-label">Delivery Address</label>
+                                    <div class="col-md-9">
+                                        <input id="address" type="text" class="form-control" v-model="address" required>
+                                    </div>
+                                </div>
+                            <br>
+                            <button class="col-md-4 btn btn-sm btn-success float-right" v-if="isLoggedIn" @click="placeOrder">Continue</button>
+                        </div>
+                        </div>
+
+                                <br>
+ 
                     <br>
-                    <div>
+
+
+                   <!-- <div>
                         <div v-if="!isLoggedIn">
                             <h2>You need to login to continue</h2>
                             <button class="col-md-4 btn btn-primary float-left" @click="login">Login</button>
                             <button class="col-md-4 btn btn-danger float-right" @click="register">Create an account</button>
                         </div>
-                        <div v-if="isLoggedIn">
-                            <div class="row">
-                                <label for="address" class="col-md-3 col-form-label">Delivery Address</label>
-                                <div class="col-md-9">
-                                    <input id="address" type="text" class="form-control" v-model="address" required>
-                                </div>
-                            </div>
-                            <br>
-                            <button class="col-md-4 btn btn-sm btn-success float-right" v-if="isLoggedIn" @click="placeOrder">Continue</button>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </template>
 
     <style scoped>
-    .small-text { font-size: 18px; }
-    .order-box { border: 1px solid #cccccc; padding: 10px 15px; }
-    .title { font-size: 36px; }
+   .main-cont {
+        width: 100%;
+        height: fit-content;
+        margin: 0 auto;
+    }
+
+    .prod-img-name-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .single-img {
+        min-width: 200px;
+        margin: 30px;
+    }
+
+    .title-descr {
+        width: 400px;
+        padding: 25px;
+    }
     </style>
      <script>
     export default {

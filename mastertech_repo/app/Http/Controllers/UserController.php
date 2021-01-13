@@ -25,7 +25,7 @@ class UserController extends Controller
                 'user' => Auth::user(),
                 'token' => Auth::user()->createToken('bigStore')->accessToken,
             ];
-        }
+        } 
 
         return response()->json($response, $status);
     }

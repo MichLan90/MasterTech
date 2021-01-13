@@ -646,6 +646,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -689,6 +725,30 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -932,6 +992,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -945,13 +1006,15 @@ __webpack_require__.r(__webpack_exports__);
 
       e.preventDefault();
 
-      if (this.password.length > 0) {
+      if (this.password.length > 0 && this.email.length > 0) {
         var email = this.email;
         var password = this.password;
         axios.post('api/login', {
           email: email,
           password: password
         }).then(function (response) {
+          console.log('this is the status' + response.status);
+          console.log(response + " " + status);
           var user = response.data.user;
           var is_admin = user.is_admin;
           localStorage.setItem('bigStore.user', JSON.stringify(user));
@@ -967,6 +1030,11 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
         });
+      } else {
+        var div = document.getElementById('errormsg');
+        var p = document.createElement('p');
+        p.innerText = "Glömde du att skriva användarnamn och/eller lösenord?";
+        div.append(p);
       }
     }
   }
@@ -1073,6 +1141,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.$router.push(nextUrl != null ? nextUrl : '/');
         }
       });
+      alert('Thank you for joining us! You can now log in');
     }
   }
 });
@@ -1088,6 +1157,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -1296,7 +1368,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Po
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\n.isLoggedin a {\r\n    color: white;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\r\n    list-style: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#navbarSupportedContent ul {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    background-color: white;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: black;\r\n    padding: 10px;\r\n    list-style: none;\n}\n.nav-link:hover {\r\n    color: white;\r\n    background-color: #0c2a35;\r\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\r\n    cursor: pointer;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\nspan {\r\n    list-style: none;\n}\r\n", ""]);
+exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\n.isLoggedin a {\r\n    color: white;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\r\n    list-style: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#navbarSupportedContent ul {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0;\r\n    color: white;\r\n    background-color: #0c2a35;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: white;\r\n    padding: 10px;\r\n    list-style: none;\n}\n.nav-link:hover {\r\n    color: white;\r\n    background-color: #3b6374;\r\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\r\n    cursor: pointer;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\nspan {\r\n    list-style: none;\n}\n.pre-footer { \r\n    text-align: center;\r\n    font-family: 'Roboto', sans-serif;\r\n    margin-top: 100px;\r\n    background-color: #0c2a35;\r\n    color: white;\r\n    width: 100%;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\n}\nfooter {\r\n    font-family: 'Roboto', sans-serif;\r\n    background-color: #3b6374;\r\n    color: #E6E6E6;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    flex-direction: row;\r\n    margin: 0;\n}\n.column {\r\n    margin: 45px;\r\n    width: 20%;\r\n    height: fit-content;\n}\n.column a {\r\n    color: white;\n}\n.social-link:hover {\r\n    background-color: white;\n}\r\n", ""]);
 
 // exports
 
@@ -1315,7 +1387,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.small-text[data-v-bb718336] { font-size: 18px;\n}\n.order-box[data-v-bb718336] { border: 1px solid #cccccc; padding: 10px 15px;\n}\n.title[data-v-bb718336] { font-size: 36px;\n}\n", ""]);
+exports.push([module.i, "\n.main-cont[data-v-bb718336] {\n     width: 100%;\n     height: fit-content;\n     margin: 0 auto;\n}\n.prod-img-name-container[data-v-bb718336] {\n     display: flex;\n     flex-wrap: wrap;\n     justify-content: center;\n     padding: 20px;\n}\n.single-img[data-v-bb718336] {\n     min-width: 200px;\n     margin: 30px;\n}\n.title-descr[data-v-bb718336] {\n     width: 400px;\n     padding: 25px;\n}\n ", ""]);
 
 // exports
 
@@ -1392,7 +1464,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.single-page-container[data-v-55d32178] {\n    display: flex;\n    flex-wrap: wrap;\n}\n.flex-child[data-v-55d32178] {\n    min-width: 200px;\n}\n", ""]);
+exports.push([module.i, "\n.main-cont[data-v-55d32178] {\n    width: 100%;\n    height: fit-content;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    margin: 0 auto;\n}\n.prod-img-name-container[data-v-55d32178] {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    padding: 20px;\n}\n.single-img[data-v-55d32178] {\n    min-width: 200px;\n    margin: 30px;\n}\n.title-descr[data-v-55d32178] {\n    width: 400px;\n    padding: 25px;\n}\n.info[data-v-55d32178] {\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.button-style[data-v-55d32178] {\n    border: none;\n    background-color: black;\n    color: white;\n    padding: 10px;\n    border-radius: 10px;\n    text-decoration: none;\n}\n.button-style[data-v-55d32178]:hover {\n    border: 1px solid black;\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\n    background-color: #0c2a31;\n    color: white;\n}\n.button-style[data-v-55d32178]:active {\n    font-size: 10px;\n}\n", ""]);
 
 // exports
 
@@ -3553,10 +3625,137 @@ var render = function() {
       { staticClass: "py-4" },
       [_c("router-view", { on: { loggedIn: _vm.change } })],
       1
-    )
+    ),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pre-footer" }, [
+      _c("p", [_c("b", [_vm._v("© Ensar & Michelle")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("div", { staticClass: "column" }, [
+        _c("h3", [_vm._v("Om MasterTech")]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "MasterTech erbjuder det senaste för gaming- och teknikentusiaster och säljer till privatpersoner \n                och företag via Inet.se och butiker belägna i Stockholm, Göteborg och Malmö. "
+          ),
+          _c("br"),
+          _vm._v(
+            "\n                På den här sidan hittar du allt du behöver veta om Inet och allt vi står för \n                och längre ner på sidan hittar du vår historia."
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column" }, [
+        _c("h3", [_vm._v("Kontakt")]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c(
+          "p",
+          { staticClass: "textbox-paragraph", attrs: { itemprop: "name" } },
+          [_vm._v("MasterTech AB.")]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          { staticClass: "textbox-paragraph", attrs: { itemprop: "address" } },
+          [_vm._v("Stora Gatan 80, 422 35 Göteborg")]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "textbox-paragraph",
+            attrs: { itemprop: "identifier" }
+          },
+          [_vm._v("Org.nr: 143 558 496")]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          { staticClass: "textbox-paragraph", attrs: { itemprop: "email" } },
+          [
+            _vm._v("E-post: "),
+            _c(
+              "a",
+              {
+                staticClass: "textbox-contact",
+                attrs: { href: "mailto:mastertech@mail.se" }
+              },
+              [_vm._v("mastertech@mail.se ")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "textbox-paragraph",
+            attrs: { itemprop: "telephone" }
+          },
+          [
+            _vm._v("Telefon: "),
+            _c(
+              "a",
+              {
+                staticClass: "textbox-contact",
+                attrs: { href: "tel:+46 59 12 75 50" }
+              },
+              [_vm._v("+46 59 12 75 50")]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column" }, [
+        _c("h3", [_vm._v("Sociala Medier")]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("p", [
+          _c("a", { attrs: { href: "https://www.facebook.com/" } }, [
+            _c("img", {
+              staticClass: "social-link",
+              staticStyle: { width: "70px" },
+              attrs: {
+                src:
+                  "https://cdn3.iconfinder.com/data/icons/glypho-social-and-other-logos/64/logo-facebook-512.png"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "https://www.instagram.com/" } }, [
+            _c("img", {
+              staticClass: "social-link",
+              staticStyle: { width: "70px" },
+              attrs: {
+                src:
+                  "https://i0.wp.com/voxeuropae.com/wp-content/uploads/2019/02/SKq9yH-black-and-white-instagram-logo-png.png?fit=1200%2C1200&ssl=1&w=640"
+              }
+            })
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -3578,146 +3777,131 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-8 offset-md-2" }, [
-        _c("div", { staticClass: "order-box" }, [
-          _c("img", {
-            attrs: { src: _vm.product.image, alt: _vm.product.name }
-          }),
-          _vm._v(" "),
-          _c("h2", {
-            staticClass: "title",
-            domProps: { innerHTML: _vm._s(_vm.product.name) }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "small-text text-muted float-left" }, [
-            _vm._v("$ " + _vm._s(_vm.product.price))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "small-text text-muted float-right" }, [
-            _vm._v("Available Units: " + _vm._s(_vm.product.units))
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("label", { staticClass: "row" }, [
-            _c("span", { staticClass: "col-md-2 float-left" }, [
-              _vm._v("Quantity: ")
-            ]),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.quantity,
-                  expression: "quantity"
-                }
-              ],
-              staticClass: "col-md-2 float-left",
-              attrs: {
-                type: "number",
-                name: "units",
-                min: "1",
-                max: _vm.product.units
-              },
-              domProps: { value: _vm.quantity },
-              on: {
-                change: _vm.checkUnits,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.quantity = $event.target.value
-                }
-              }
-            })
-          ])
+  return _c("div", { staticClass: "container main-cont" }, [
+    !_vm.isLoggedIn
+      ? _c(
+          "div",
+          {
+            staticStyle: {
+              "text-align": "center",
+              "font-size": "22px",
+              color: "red"
+            }
+          },
+          [_c("p", [_vm._v("Du behöver vara inloggad.")])]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "row prod-img-name-container" }, [
+      _c("img", {
+        staticClass: "single-img",
+        attrs: { src: _vm.product.image, alt: _vm.product.name }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "title-descr" }, [
+        _c("h2", {
+          staticClass: "title",
+          domProps: { innerHTML: _vm._s(_vm.product.name) }
+        }),
+        _vm._v(" "),
+        _c("p", { staticClass: "small-text text-muted" }, [
+          _c("b", [_vm._v("Pris")]),
+          _vm._v(": " + _vm._s(_vm.product.price) + " SEK")
         ]),
         _vm._v(" "),
-        _c("br"),
+        _c("p", { staticClass: "small-text text-muted" }, [
+          _c("b", [_vm._v("Lagerstatus")]),
+          _vm._v(": " + _vm._s(_vm.product.units))
+        ]),
         _vm._v(" "),
-        _c("div", [
-          !_vm.isLoggedIn
-            ? _c("div", [
-                _c("h2", [_vm._v("You need to login to continue")]),
-                _vm._v(" "),
+        _c("p", { staticClass: "small-text text-muted" }, [
+          _vm._v("Antal:\n                    "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.quantity,
+                expression: "quantity"
+              }
+            ],
+            staticClass: "col-md-2 float-left",
+            attrs: {
+              type: "number",
+              name: "units",
+              min: "1",
+              max: _vm.product.units
+            },
+            domProps: { value: _vm.quantity },
+            on: {
+              change: _vm.checkUnits,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.quantity = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _vm.isLoggedIn
+          ? _c("div", [
+              _c("div", { staticClass: "row" }, [
                 _c(
-                  "button",
+                  "label",
                   {
-                    staticClass: "col-md-4 btn btn-primary float-left",
-                    on: { click: _vm.login }
+                    staticClass: "col-md-3 col-form-label",
+                    attrs: { for: "address" }
                   },
-                  [_vm._v("Login")]
+                  [_vm._v("Delivery Address")]
                 ),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "col-md-4 btn btn-danger float-right",
-                    on: { click: _vm.register }
-                  },
-                  [_vm._v("Create an account")]
-                )
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.isLoggedIn
-            ? _c("div", [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "col-md-3 col-form-label",
-                      attrs: { for: "address" }
-                    },
-                    [_vm._v("Delivery Address")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-9" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.address,
-                          expression: "address"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { id: "address", type: "text", required: "" },
-                      domProps: { value: _vm.address },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.address = $event.target.value
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _vm.isLoggedIn
-                  ? _c(
-                      "button",
+                _c("div", { staticClass: "col-md-9" }, [
+                  _c("input", {
+                    directives: [
                       {
-                        staticClass:
-                          "col-md-4 btn btn-sm btn-success float-right",
-                        on: { click: _vm.placeOrder }
-                      },
-                      [_vm._v("Continue")]
-                    )
-                  : _vm._e()
-              ])
-            : _vm._e()
-        ])
-      ])
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.address,
+                        expression: "address"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "address", type: "text", required: "" },
+                    domProps: { value: _vm.address },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.address = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _vm.isLoggedIn
+                ? _c(
+                    "button",
+                    {
+                      staticClass:
+                        "col-md-4 btn btn-sm btn-success float-right",
+                      on: { click: _vm.placeOrder }
+                    },
+                    [_vm._v("Continue")]
+                  )
+                : _vm._e()
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br")
     ])
   ])
 }
@@ -4049,7 +4233,9 @@ var render = function() {
                         "\n                                    Login\n                                "
                       )
                     ]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _c("div", { attrs: { id: "errormsg" } })
                 ])
               ])
             ])
@@ -4311,50 +4497,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "row single-page-container" },
-      [
-        _c("img", {
-          staticClass: "flex-child",
-          attrs: { src: _vm.product.image, alt: _vm.product.name }
-        }),
-        _vm._v(" "),
+  return _c("div", { staticClass: "container main-cont" }, [
+    _c("div", { staticClass: "row prod-img-name-container" }, [
+      _c("img", {
+        staticClass: "single-img",
+        attrs: { src: _vm.product.image, alt: _vm.product.name }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "title-descr" }, [
         _c("h3", {
-          staticClass: "title flex-child",
+          staticClass: "title",
           domProps: { innerHTML: _vm._s(_vm.product.name) }
         }),
         _vm._v(" "),
-        _c("p", { staticClass: "text-muted flex-child" }, [
+        _c("p", { staticClass: "text-muted" }, [
           _vm._v(_vm._s(_vm.product.description))
         ]),
         _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "small-text text-muted float-left flex-child" },
-          [_vm._v(_vm._s(_vm.product.price) + " SEK")]
-        ),
-        _vm._v(" "),
-        _c("span", { staticClass: "small-text float-right flex-child" }, [
-          _vm._v("Available Quantity: " + _vm._s(_vm.product.units))
+        _c("span", { staticClass: "info small-text text-muted float-left" }, [
+          _c("b", [_vm._v("Pris")]),
+          _vm._v(": " + _vm._s(_vm.product.price) + " SEK")
         ]),
-        _vm._v(" "),
         _c("br"),
+        _vm._v(" "),
+        _c("span", { staticClass: "info small-text float-right" }, [
+          _c("b", [_vm._v("Lagerstatus")]),
+          _vm._v(": " + _vm._s(_vm.product.units))
+        ]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
         _c(
-          "router-link",
-          {
-            staticClass: "col-md-4 btn btn-sm btn-primary float-right",
-            attrs: { to: { path: "/checkout?pid=" + _vm.product.id } }
-          },
-          [_vm._v("Buy Now")]
+          "div",
+          { staticStyle: { margin: "20px 0 20px 0", "text-align": "right" } },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass:
+                  "button-style col-md-4 btn btn-sm btn-primary float-right",
+                attrs: { to: { path: "/checkout?pid=" + _vm.product.id } }
+              },
+              [_vm._v("Köp")]
+            )
+          ],
+          1
         )
-      ],
-      1
-    )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
