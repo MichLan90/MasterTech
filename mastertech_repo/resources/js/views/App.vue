@@ -14,7 +14,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-link" v-if="isLoggedIn">Kundvagn:  (0)</li>
+                            <li class="nav-link" v-if="isLoggedIn" style="display: flex; width: 10%;">
+                                <img src="https://img.icons8.com/ios-glyphs/30/ffffff/buy--v2.png" style="width: 25px;"/>
+                                <span style="width: 100px; text-align: left; margin-left: 5px;"> ( 0 )</span>
+                            </li>
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
@@ -56,7 +59,7 @@
                     <p>
                         <a href="https://www.facebook.com/">
                             <img src="https://cdn3.iconfinder.com/data/icons/glypho-social-and-other-logos/64/logo-facebook-512.png" style="width: 70px" class="social-link">
-                        </a>
+                        </a><br>
                         <a href="https://www.instagram.com/">
                             <img src="https://i0.wp.com/voxeuropae.com/wp-content/uploads/2019/02/SKq9yH-black-and-white-instagram-logo-png.png?fit=1200%2C1200&ssl=1&w=640" style="width: 70px" class="social-link">
                         </a>

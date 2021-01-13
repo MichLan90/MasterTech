@@ -684,6 +684,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3573,9 +3576,34 @@ var render = function() {
               [
                 _c("ul", { staticClass: "navbar-nav mr-auto" }, [
                   _vm.isLoggedIn
-                    ? _c("li", { staticClass: "nav-link" }, [
-                        _vm._v("Kundvagn:  (0)")
-                      ])
+                    ? _c(
+                        "li",
+                        {
+                          staticClass: "nav-link",
+                          staticStyle: { display: "flex", width: "10%" }
+                        },
+                        [
+                          _c("img", {
+                            staticStyle: { width: "25px" },
+                            attrs: {
+                              src:
+                                "https://img.icons8.com/ios-glyphs/30/ffffff/buy--v2.png"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticStyle: {
+                                width: "100px",
+                                "text-align": "left",
+                                "margin-left": "5px"
+                              }
+                            },
+                            [_vm._v(" ( 0 )")]
+                          )
+                        ]
+                      )
                     : _vm._e()
                 ]),
                 _vm._v(" "),
@@ -3746,6 +3774,7 @@ var staticRenderFns = [
               }
             })
           ]),
+          _c("br"),
           _vm._v(" "),
           _c("a", { attrs: { href: "https://www.instagram.com/" } }, [
             _c("img", {
