@@ -18,7 +18,8 @@
                                 <router-link :to="{name: 'cart'}" style="color: white; width: 50px; display: flex; align-items:center:">
                                 <img src="https://img.icons8.com/ios-glyphs/30/ffffff/buy--v2.png" style="width: 25px;"/>
                                 
-                                <span id="cartLength" style="width: 100px; text-align: left; margin-left: 5px;">0</span>
+                                <span v-if="cartLength" ref="cartLength" 
+                                    style="width: 100px; text-align: left; margin-left: 5px;">{{cartLength}}</span>
                                 </router-link>
                                 
                             </li>
@@ -79,9 +80,13 @@ export default {
         return {
             name: null,
             user_type: 0,
-            isLoggedIn: localStorage.getItem('bigStore.jwt') != null
+            isLoggedIn: localStorage.getItem('bigStore.jwt') != null,
+            cartLength: JSON.parse(localStorage.getItem('bigStore.cart')).length
         }
     },
+    beforeMount(){
+            this.showItemsInCart();
+        },
     mounted() {
         this.setDefaults()
     },
@@ -105,9 +110,12 @@ export default {
             this.$router.push('/')
         },
         showItemsInCart() {
-            localStorage.getItem('bigStore.cart')
-             let showItemsNumber = document.getElementById('cartLength')
-                 showItemsNumber.innerText = orderArray.length
+            const orderArray = JSON.parse(localStorage.getItem('bigStore.cart'));
+            let length = orderArray.length;
+            return length
+            console.log(orderArray.length);
+            /*this.$refs.cartLength.innerHTML = orderArray.length
+            console.log(showQuantity)*/
         }
     }
 }

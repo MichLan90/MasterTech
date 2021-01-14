@@ -55,7 +55,7 @@
                 }
             },
             addToCart(e) {
-                e.preventDefault()
+                //e.preventDefault()
                 let orderArray = [];
                 let singleOrder = {
                     product_name: this.product.name,
@@ -72,8 +72,7 @@
                     localStorage.setItem('bigStore.cart', JSON.stringify(orderArray));
                 }
                 window.alert("Produkten har lagts till.");
-                let showItemsNumber = document.getElementById('cartLength')
-                showItemsNumber.innerText = orderArray.length
+                location.reload();
             },
         }
     }

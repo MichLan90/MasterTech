@@ -716,13 +716,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       name: null,
       user_type: 0,
-      isLoggedIn: localStorage.getItem('bigStore.jwt') != null
+      isLoggedIn: localStorage.getItem('bigStore.jwt') != null,
+      cartLength: JSON.parse(localStorage.getItem('bigStore.cart')).length
     };
+  },
+  beforeMount: function beforeMount() {
+    this.showItemsInCart();
   },
   mounted: function mounted() {
     this.setDefaults();
@@ -747,9 +752,12 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push('/');
     },
     showItemsInCart: function showItemsInCart() {
-      localStorage.getItem('bigStore.cart');
-      var showItemsNumber = document.getElementById('cartLength');
-      showItemsNumber.innerText = orderArray.length;
+      var orderArray = JSON.parse(localStorage.getItem('bigStore.cart'));
+      var length = orderArray.length;
+      return length;
+      console.log(orderArray.length);
+      /*this.$refs.cartLength.innerHTML = orderArray.length
+      console.log(showQuantity)*/
     }
   }
 });
@@ -1265,7 +1273,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     addToCart: function addToCart(e) {
-      e.preventDefault();
+      //e.preventDefault()
       var orderArray = [];
       var singleOrder = {
         product_name: this.product.name,
@@ -1283,8 +1291,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       window.alert("Produkten har lagts till.");
-      var showItemsNumber = document.getElementById('cartLength');
-      showItemsNumber.innerText = orderArray.length;
+      location.reload();
     }
   }
 });
@@ -3865,18 +3872,20 @@ var render = function() {
                                 }
                               }),
                               _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticStyle: {
-                                    width: "100px",
-                                    "text-align": "left",
-                                    "margin-left": "5px"
-                                  },
-                                  attrs: { id: "cartLength" }
-                                },
-                                [_vm._v("0")]
-                              )
+                              _vm.cartLength
+                                ? _c(
+                                    "span",
+                                    {
+                                      ref: "cartLength",
+                                      staticStyle: {
+                                        width: "100px",
+                                        "text-align": "left",
+                                        "margin-left": "5px"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(_vm.cartLength))]
+                                  )
+                                : _vm._e()
                             ]
                           )
                         ],
