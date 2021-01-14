@@ -12,6 +12,7 @@ import Checkout from './views/Checkout'
 import Confirmation from './views/Confirmation'
 import UserBoard from './views/UserBoard'
 import Admin from './views/Admin'
+import Cart from './views/Cart'
 
 const router = new VueRouter({
     mode: 'history',
@@ -35,6 +36,11 @@ const router = new VueRouter({
             path: '/products/:id',
             name: 'single-products',
             component: SingleProduct
+        },
+        {
+            path: '/cart',
+            name: 'cart',
+            component: Cart
         },
         {
             path: '/confirmation',

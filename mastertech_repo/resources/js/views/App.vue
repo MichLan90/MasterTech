@@ -14,9 +14,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-link" v-if="isLoggedIn" style="display: flex; width: 10%;">
+                            <li class="nav-link" v-if="isLoggedIn" style="display: flex; width: 15%; align-items: baseline;">
+                                <router-link :to="{name: 'cart'}" style="color: white; width: 50px; display: flex; align-items:center:">
                                 <img src="https://img.icons8.com/ios-glyphs/30/ffffff/buy--v2.png" style="width: 25px;"/>
-                                <span style="width: 100px; text-align: left; margin-left: 5px;"> ( 0 )</span>
+                                
+                                <span id="cartLength" style="width: 100px; text-align: left; margin-left: 5px;">0</span>
+                                </router-link>
+                                
                             </li>
                         </ul>
                         <!-- Right Side Of Navbar -->
@@ -96,12 +100,19 @@ export default {
         logout(){
             localStorage.removeItem('bigStore.jwt')
             localStorage.removeItem('bigStore.user')
+            localStorage.removeItem('bigStore.cart')
             this.change()
             this.$router.push('/')
+        },
+        showItemsInCart() {
+            localStorage.getItem('bigStore.cart')
+             let showItemsNumber = document.getElementById('cartLength')
+                 showItemsNumber.innerText = orderArray.length
         }
     }
 }
 </script>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
@@ -130,6 +141,12 @@ nav .container a {
 #navbarSupportedContent {
     width: 100%;
     display: flex;
+}
+
+#cartLength {
+    margin-bottom: 5px;
+    font-size: 18px;
+    margin-left: 10px;
 }
 
 #navbarSupportedContent .ml-auto {

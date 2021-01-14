@@ -10,9 +10,14 @@
                         <p class="text-muted">{{product.description}}</p>
                         <span class="info small-text text-muted float-left"><b>Pris</b>: {{product.price}} SEK</span><br>
                         <span class="info small-text float-right"><b>Lagerstatus</b>: {{product.units}}</span>
+                        <p class="small-text text-muted">Antal:
+                            <input type="number" name="units" min="1" :max="product.units" class="col-md-2 float-left" v-model="quantity" @change="checkUnits">
+                        </p>
                         <hr>
                         <div style="margin: 20px 0 20px 0; text-align: right;">
-                            <router-link :to="{ path: '/checkout?pid='+product.id }" class="button-style col-md-4 btn btn-sm btn-primary float-right">Lägg i kundvagnen</router-link>
+                            <div v-if="!isLoggedIn" style="text-align: center; font-size: 14px; color: red;"><p>Du behöver vara inloggad för att köpa produkten.</p></div>
+                            <!--<router-link :to="{ path: '/checkout?pid='+product.id }" v-if="isLoggedIn" class="button-style col-md-4 btn btn-sm btn-primary float-right">Lägg i kundvagnen</router-link>-->
+                            <button class="button-style" v-if="isLoggedIn" @click="addToCart">Lägg till kundvagn</button>
                         </div>
                     </div>
                     
@@ -23,13 +28,53 @@
     <script>
     export default {
         data(){
-            return {
+             return {
+                address : "",
+                quantity : 1,
+                isLoggedIn : null,
                 product : []
             }
+        },
+        mounted() {
+            this.isLoggedIn = localStorage.getItem('bigStore.jwt') != null
         },
         beforeMount(){
             let url = `/api/products/${this.$route.params.id}`
             axios.get(url).then(response => this.product = response.data)      
+        },
+        methods : {
+            login() {
+                this.$router.push({name: 'login', params: {nextUrl: this.$route.fullPath}})
+            },
+            register() {
+                this.$router.push({name: 'register', params: {nextUrl: this.$route.fullPath}})
+            },
+            checkUnits(e){
+                if (this.quantity > this.product.units) {
+                    this.quantity = this.product.units
+                }
+            },
+            addToCart(e) {
+                e.preventDefault()
+                let orderArray = [];
+                let singleOrder = {
+                    product_name: this.product.name,
+                    product_id: this.product.id,
+                    quantity: this.quantity
+                }
+
+                if(!localStorage.getItem('bigStore.cart')) {
+                    orderArray.push(singleOrder);
+                    localStorage.setItem('bigStore.cart', JSON.stringify(orderArray));
+                } else {
+                    orderArray = JSON.parse(localStorage.getItem('bigStore.cart'));
+                    orderArray.push(singleOrder);
+                    localStorage.setItem('bigStore.cart', JSON.stringify(orderArray));
+                }
+                window.alert("Produkten har lagts till.");
+                let showItemsNumber = document.getElementById('cartLength')
+                showItemsNumber.innerText = orderArray.length
+            },
         }
     }
     </script>
