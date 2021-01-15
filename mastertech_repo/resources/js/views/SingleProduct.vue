@@ -60,7 +60,9 @@
                 let singleOrder = {
                     product_name: this.product.name,
                     product_id: this.product.id,
-                    quantity: this.quantity
+                    quantity: this.quantity,
+                    product_price: this.product.price,
+                    product_img : this.product.image
                 }
 
                 if(!localStorage.getItem('bigStore.cart')) {

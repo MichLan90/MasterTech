@@ -13,6 +13,7 @@ import Confirmation from './views/Confirmation'
 import UserBoard from './views/UserBoard'
 import Admin from './views/Admin'
 import Cart from './views/Cart'
+import Checkingout from './views/Checkingout'
 
 const router = new VueRouter({
     mode: 'history',
@@ -52,6 +53,11 @@ const router = new VueRouter({
             name: 'checkout',
             component: Checkout,
             props: (route) => ({ pid: route.query.pid })
+        },
+        {
+            path: '/checkingout',
+            name: 'checkingout',
+            component: Checkingout
         },
         {
             path: '/dashboard',

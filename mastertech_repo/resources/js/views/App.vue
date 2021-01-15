@@ -88,7 +88,8 @@ export default {
             this.showItemsInCart();
         },
     mounted() {
-        this.setDefaults()
+        this.setDefaults();
+        this.showItemsInCart();
     },
     methods : {
         setDefaults() {
