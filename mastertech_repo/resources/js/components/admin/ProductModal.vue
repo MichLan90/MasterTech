@@ -10,10 +10,9 @@
                             Namn: <br><input type="text" v-model="data.name"><br>
                             Antal: <br><input type="text" v-model="data.units"><br>
                             Pris: <br><input type="text" v-model="data.price"><br>
-                            Kategori: <br><input type="text" v-model="data.category"><br>
                             Beskrivning: <br><textarea v-model="data.description" placeholder="description"></textarea><br>
-                            <span >Ladd upp en bild:<br>
-                                <img :src="data.image" v-show="data.image != null"><br>
+                            <span style="width:280px">Ladd upp en bild:<br>
+                                <img :src="data.image" v-show="data.image != null" style="width: 100%"><br>
                                 <input type="file" id="file" @change="attachFile"><br>
                             </span>
                         </slot>

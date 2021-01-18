@@ -9,7 +9,7 @@
                         <td>Antal</td>
                         <td>Pris</td>
                         <td>Beskrivning</td>
-                        <td>Kategori</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,7 +19,7 @@
                         <td v-model="product.units">{{product.units}}</td>
                         <td v-model="product.price">{{product.price}}</td>
                         <td v-model="product.description">{{product.description}}</td>
-                        <td v-model="product.category">{{product.category}}</td>
+                        <td> <button @click="editingItem = product">Ändra</button></td>
                     </tr>
                 </tbody>
             </table>

@@ -303,7 +303,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
   data: function data() {
@@ -1175,7 +1174,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -3684,29 +3682,6 @@ var render = function() {
                 }
               }),
               _c("br"),
-              _vm._v("\n                    Kategori: "),
-              _c("br"),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.data.category,
-                    expression: "data.category"
-                  }
-                ],
-                attrs: { type: "text" },
-                domProps: { value: _vm.data.category },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.data, "category", $event.target.value)
-                  }
-                }
-              }),
-              _c("br"),
               _vm._v("\n                    Beskrivning: "),
               _c("br"),
               _c("textarea", {
@@ -3731,7 +3706,7 @@ var render = function() {
               }),
               _c("br"),
               _vm._v(" "),
-              _c("span", [
+              _c("span", { staticStyle: { width: "280px" } }, [
                 _vm._v("Ladd upp en bild:"),
                 _c("br"),
                 _vm._v(" "),
@@ -3744,6 +3719,7 @@ var render = function() {
                       expression: "data.image != null"
                     }
                   ],
+                  staticStyle: { width: "100%" },
                   attrs: { src: _vm.data.image }
                 }),
                 _c("br"),
@@ -3867,19 +3843,19 @@ var render = function() {
                     [_vm._v(_vm._s(product.description))]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "td",
-                    {
-                      model: {
-                        value: product.category,
-                        callback: function($$v) {
-                          _vm.$set(product, "category", $$v)
-                        },
-                        expression: "product.category"
-                      }
-                    },
-                    [_vm._v(_vm._s(product.category))]
-                  )
+                  _c("td", [
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.editingItem = product
+                          }
+                        }
+                      },
+                      [_vm._v("Ändra")]
+                    )
+                  ])
                 ]
               )
             }),
@@ -3944,7 +3920,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [_vm._v("Beskrivning")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Kategori")])
+        _c("td")
       ])
     ])
   }
@@ -5171,14 +5147,6 @@ var render = function() {
                             _c("span", {
                               domProps: { innerHTML: _vm._s(product.name) }
                             }),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              {
-                                staticClass: "small-text text-muted float-right"
-                              },
-                              [_vm._v(_vm._s(product.category))]
-                            ),
                             _vm._v(" "),
                             _c(
                               "span",

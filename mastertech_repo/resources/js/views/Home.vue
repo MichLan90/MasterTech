@@ -27,7 +27,6 @@
                                     <img :src="product.image" :alt="product.name" class="product-img">
                                     </div>
                                     <h5><span v-html="product.name"></span>
-                                        <span class="small-text text-muted float-right">{{product.category}}</span>
                                         <span class="small-text text-muted float-right">{{product.price}} SEK</span>
                                     </h5>
                                     <button class="col-md-4 btn btn-sm btn-primary float-right buynow">Visa mer >>></button>
