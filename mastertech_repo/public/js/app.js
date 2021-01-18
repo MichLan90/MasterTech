@@ -1212,10 +1212,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5078,41 +5074,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto"
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "cat-container" },
-            [
-              _c("div", { staticClass: "category-menu" }, [
-                _vm._v("Alla produkter")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.products, function(product, index) {
-                return _c(
-                  "div",
-                  {
-                    key: product,
-                    staticClass: "category-menu",
-                    on: { key: index }
-                  },
-                  [_vm._v(_vm._s(product.category))]
-                )
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c("h2", { staticClass: "title" }, [_vm._v("Våra produkter")]),
-          _vm._v(" "),
-          _c("hr")
-        ]
-      ),
+      _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
@@ -5180,7 +5142,25 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto"
+      },
+      [
+        _c("h2", { staticClass: "title" }, [_vm._v("Våra produkter")]),
+        _vm._v(" "),
+        _c("hr")
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 

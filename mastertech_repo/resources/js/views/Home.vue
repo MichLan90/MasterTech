@@ -10,10 +10,6 @@
                 </div>
               <img src="https://nextshop.pk/wp-content/uploads/2018/08/New-Refurbished-Banner.jpg" class="banner" alt="tech-banner" border="0">
             <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
-                <div class="cat-container">
-                    <div class="category-menu">Alla produkter</div>
-                    <div class="category-menu" v-for="(product,index) in products" @key="index" v-bind:key="product">{{product.category}}</div>
-                </div>
                 <h2 class="title">Våra produkter</h2>
                 <hr>
             </div>
