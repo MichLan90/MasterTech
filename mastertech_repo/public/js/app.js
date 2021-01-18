@@ -813,6 +813,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -950,7 +951,8 @@ __webpack_require__.r(__webpack_exports__);
       cartLength: JSON.parse(localStorage.getItem('bigStore.cart')).length,
       orderArray: JSON.parse(localStorage.getItem('bigStore.cart')),
       isLoggedIn: null,
-      product: []
+      product: [],
+      arrayOfOrders: []
     };
   },
   mounted: function mounted() {
@@ -980,6 +982,30 @@ __webpack_require__.r(__webpack_exports__);
         params: {
           nextUrl: this.$route.fullPath
         }
+      });
+    },
+    placeOrder: function placeOrder(e) {
+      e.preventDefault();
+      var address = this.address;
+      var product_id = this.product.id;
+      var quantity = this.quantity; //remark these lines, change with storing to arrayOfOrders data instead of doing post request
+      //axios.post('api/orders/', {address, quantity, product_id})
+      //.then(response => this.$router.push('/confirmation'))
+
+      this.arrayOfOrders.push({
+        product_id: product_id,
+        quantity: quantity,
+        address: address
+      });
+    },
+    postData: function postData() {
+      var _this2 = this;
+
+      var instance = this;
+      axios.post('api/orders/', {
+        data: instance.arrayOfOrders
+      }).then(function (response) {
+        return _this2.$router.push('/confirmation');
       });
     },
     checkUnits: function checkUnits(e) {
@@ -1069,7 +1095,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['pid'],
   data: function data() {
@@ -1077,7 +1102,8 @@ __webpack_require__.r(__webpack_exports__);
       address: "",
       quantity: 1,
       isLoggedIn: null,
-      product: []
+      product: [],
+      arrayOfOrders: []
     };
   },
   mounted: function mounted() {
@@ -1114,24 +1140,34 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     placeOrder: function placeOrder(e) {
-      var _this2 = this;
-
       e.preventDefault();
       var address = this.address;
       var product_id = this.product.id;
-      var quantity = this.quantity;
-      axios.post('api/orders/', {
-        address: address,
+      var quantity = this.quantity; //remark these lines, change with storing to arrayOfOrders data instead of doing post request
+      //axios.post('api/orders/', {address, quantity, product_id})
+      //.then(response => this.$router.push('/confirmation'))
+
+      this.arrayOfOrders.push({
+        product_id: product_id,
         quantity: quantity,
-        product_id: product_id
+        address: address
+      });
+    },
+    //create new function to make post request and call it from your button
+    postData: function postData() {
+      var _this2 = this;
+
+      var instance = this;
+      axios.post('api/orders/', {
+        data: instance.arrayOfOrders
       }).then(function (response) {
         return _this2.$router.push('/confirmation');
       });
-    },
-    checkUnits: function checkUnits(e) {
-      if (this.quantity > this.product.units) {
-        this.quantity = this.product.units;
-      }
+    }
+  },
+  checkUnits: function checkUnits(e) {
+    if (this.quantity > this.product.units) {
+      this.quantity = this.product.units;
     }
   }
 });
@@ -1798,7 +1834,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.main-cont-all[data-v-416c4e36] {\n    width: 100%;\n}\n.product-container[data-v-416c4e36] {\n    margin: 0 auto;\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    border-bottom: 1px solid black;\n    width: 70%;\n    justify-content: center;\n}\n.other-container[data-v-416c4e36] {\n    margin: 0 auto;        \n    border-bottom: 1px solid black;\n    width: 70%;\n}\n.prod-child[data-v-416c4e36] {\n    width: 20%;\n    padding: 10px;\n}\n.img[data-v-416c4e36] {\n    width:10%;\n    margin: 10px;\n}\n.titles[data-v-416c4e36] {\n    font-size: 14px;\n}\n.removebtn[data-v-416c4e36] {\n    background-color: red;\n    border: black 1px solid;\n    width: 80px;\n    height: 40px;\n}\n.proceed[data-v-416c4e36] {\n    text-align: center;\n    width: 100%;\n    height: 2vh;\n    margin-top: 20px;\n}\n.proceed a[data-v-416c4e36] {\n    text-decoration: none;\n    color: black;\n    padding: 10px;\n    background-color: #EAEAEA;\n    border-radius: 10px;\n}\n.proceed a[data-v-416c4e36]:hover {\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\n    color: white;\n    background-color: #0c2a35;\n}\n", ""]);
+exports.push([module.i, "\n.main-cont-all[data-v-416c4e36] {\n    width: 100%;\n}\n.product-container[data-v-416c4e36] {\n    margin: 0 auto;\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    border-bottom: 1px solid black;\n    width: 70%;\n    justify-content: center;\n}\n.other-container[data-v-416c4e36] {\n    margin: 0 auto;        \n    border-bottom: 1px solid black;\n    width: 70%;\n}\n.prod-child[data-v-416c4e36] {\n    width: 20%;\n    padding: 10px;\n}\n.img[data-v-416c4e36] {\n    width:10%;\n    margin: 10px;\n}\n.titles[data-v-416c4e36] {\n    font-size: 14px;\n}\n.removebtn[data-v-416c4e36] {\n    background-color: red;\n    border: black 1px solid;\n    width: 80px;\n    height: 40px;\n}\n.proceed[data-v-416c4e36] {\n    text-align: center;\n    width: 100%;\n    height: 2vh;\n    margin-top: 20px;\n}\n.proceed button[data-v-416c4e36] {\n    text-decoration: none;\n    color: black;\n    padding: 10px;\n    background-color: #EAEAEA;\n    border-radius: 10px;\n}\n.proceed button[data-v-416c4e36]:hover {\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\n    color: white;\n    background-color: #0c2a35;\n}\n", ""]);
 
 // exports
 
@@ -4518,6 +4554,14 @@ var render = function() {
                         { attrs: { to: { path: "/checkingout" } } },
                         [_vm._v("Gå till betalning och leverans")]
                       )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.cartLength
+                    ? _c(
+                        "router-link",
+                        { attrs: { to: { path: "/checkout" } } },
+                        [_vm._v("Old checkout")]
+                      )
                     : _vm._e()
                 ],
                 1
@@ -4758,20 +4802,9 @@ var render = function() {
       _c("br"),
       _vm._v(" "),
       _vm.cartLength
-        ? _c(
-            "div",
-            { staticClass: "proceed" },
-            [
-              _vm.cartLength
-                ? _c(
-                    "router-link",
-                    { attrs: { to: { path: "/confirmation" } } },
-                    [_vm._v("Bekräfta")]
-                  )
-                : _vm._e()
-            ],
-            1
-          )
+        ? _c("div", { staticClass: "proceed" }, [
+            _c("button", { on: { click: _vm.postData } }, [_vm._v("Bekräfta")])
+          ])
         : _vm._e()
     ])
   ])
@@ -4824,20 +4857,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container main-cont" }, [
-    !_vm.isLoggedIn
-      ? _c(
-          "div",
-          {
-            staticStyle: {
-              "text-align": "center",
-              "font-size": "22px",
-              color: "red"
-            }
-          },
-          [_c("p", [_vm._v("Du behöver vara inloggad.")])]
-        )
-      : _vm._e(),
-    _vm._v(" "),
     _c("div", { staticClass: "row prod-img-name-container" }, [
       _c("img", {
         staticClass: "single-img",
@@ -4891,63 +4910,58 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _vm.isLoggedIn
-          ? _c("div", [
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "label",
+        _c("div", [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-md-3 col-form-label",
+                attrs: { for: "address" }
+              },
+              [_vm._v("Delivery Address")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-9" }, [
+              _c("input", {
+                directives: [
                   {
-                    staticClass: "col-md-3 col-form-label",
-                    attrs: { for: "address" }
-                  },
-                  [_vm._v("Delivery Address")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-9" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.address,
-                        expression: "address"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "address", type: "text", required: "" },
-                    domProps: { value: _vm.address },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.address = $event.target.value
-                      }
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.address,
+                    expression: "address"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "address", type: "text", required: "" },
+                domProps: { value: _vm.address },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _vm.isLoggedIn
-                ? _c(
-                    "button",
-                    {
-                      staticClass:
-                        "col-md-4 btn btn-sm btn-success float-right",
-                      on: { click: _vm.placeOrder }
-                    },
-                    [_vm._v("Continue")]
-                  )
-                : _vm._e()
+                    _vm.address = $event.target.value
+                  }
+                }
+              })
             ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br")
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "col-md-4 btn btn-sm btn-success float-right",
+              on: { click: _vm.placeOrder }
+            },
+            [_vm._v("Continue")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("br")
+      ])
     ])
   ])
 }

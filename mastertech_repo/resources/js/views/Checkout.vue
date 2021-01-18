@@ -1,6 +1,5 @@
 <template>
         <div class="container main-cont">
-        <div v-if="!isLoggedIn" style="text-align: center; font-size: 22px; color: red;"><p>Du behöver vara inloggad.</p></div>
             <div class="row prod-img-name-container">
                         <img :src="product.image" :alt="product.name" class="single-img">
                         <div class="title-descr">
@@ -10,7 +9,7 @@
                             <p class="small-text text-muted">Antal:
                             <input type="number" name="units" min="1" :max="product.units" class="col-md-2 float-left" v-model="quantity" @change="checkUnits">
                             </p>
-                            <div v-if="isLoggedIn">
+                            <div>
                                 <div class="row">
                                     <label for="address" class="col-md-3 col-form-label">Delivery Address</label>
                                     <div class="col-md-9">
@@ -18,8 +17,8 @@
                                     </div>
                                 </div>
                             <br>
-                            <button class="col-md-4 btn btn-sm btn-success float-right" v-if="isLoggedIn" @click="placeOrder">Continue</button>
-                        </div>
+                            <button class="col-md-4 btn btn-sm btn-success float-right"@click="placeOrder">Continue</button>
+
                         </div>
 
                                 <br>
@@ -71,7 +70,8 @@
                 address : "",
                 quantity : 1,
                 isLoggedIn : null,
-                product : []
+                product : [],
+                arrayOfOrders:[]
             }
         },
         mounted() {
@@ -94,14 +94,28 @@
                 this.$router.push({name: 'register', params: {nextUrl: this.$route.fullPath}})
             },
             placeOrder(e) {
-                e.preventDefault()
+                    e.preventDefault()
 
-                let address = this.address
-                let product_id = this.product.id
-                let quantity = this.quantity
+                    let address = this.address
+                    let product_id = this.product.id
+                    let quantity = this.quantity
+                    //remark these lines, change with storing to arrayOfOrders data instead of doing post request
+                    //axios.post('api/orders/', {address, quantity, product_id})
+                            //.then(response => this.$router.push('/confirmation'))
 
-                axios.post('api/orders/', {address, quantity, product_id})
-                     .then(response => this.$router.push('/confirmation'))
+                    this.arrayOfOrders.push({
+                        product_id:product_id,
+                        quantity:quantity, 
+                        address:address
+                    });
+            },
+                //create new function to make post request and call it from your button
+                postData(){
+                    let instance = this;
+                    axios.post('api/orders/', {
+                        data:instance.arrayOfOrders
+                    }).then(response => this.$router.push('/confirmation'))
+                }
             },
             checkUnits(e){
                 if (this.quantity > this.product.units) {
@@ -109,5 +123,4 @@
                 }
             }
         }
-    }
     </script>

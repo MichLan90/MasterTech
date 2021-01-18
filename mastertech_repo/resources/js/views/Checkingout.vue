@@ -43,7 +43,7 @@
                             </div>
                             <br><br>
                             <div class="proceed" v-if="cartLength">
-                                <router-link :to="{ path: '/confirmation' }" v-if="cartLength">Bekräfta</router-link>
+                                <button @click="postData">Bekräfta</button>
                             </div>
                         </div>
             </div>
@@ -58,6 +58,7 @@
                 orderArray : JSON.parse(localStorage.getItem('bigStore.cart')),
                 isLoggedIn : null,
                 product : [],
+                arrayOfOrders: []
             }
         },
         mounted() {
@@ -74,6 +75,28 @@
             },
             register() {
                 this.$router.push({name: 'register', params: {nextUrl: this.$route.fullPath}})
+            },
+            placeOrder(e) {
+                    e.preventDefault()
+
+                    let address = this.address
+                    let product_id = this.product.id
+                    let quantity = this.quantity
+                    //remark these lines, change with storing to arrayOfOrders data instead of doing post request
+                    //axios.post('api/orders/', {address, quantity, product_id})
+                            //.then(response => this.$router.push('/confirmation'))
+
+                    this.arrayOfOrders.push({
+                        product_id:product_id,
+                        quantity:quantity, 
+                        address:address
+                    });
+            },
+            postData(){
+                let instance = this;
+                axios.post('api/orders/', {
+                    data:instance.arrayOfOrders
+                }).then(response => this.$router.push('/confirmation'))
             },
             checkUnits(e){
                 if (this.quantity > this.product.units) {
@@ -137,7 +160,7 @@
         margin-top: 20px;
     }
 
-    .proceed a {
+    .proceed button {
         text-decoration: none;
         color: black;
         padding: 10px;
@@ -145,7 +168,7 @@
         border-radius: 10px;
     }
 
-    .proceed a:hover {
+    .proceed button:hover {
         transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);
         color: white;
         background-color: #0c2a35;
