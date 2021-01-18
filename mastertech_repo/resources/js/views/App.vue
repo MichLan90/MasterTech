@@ -109,6 +109,7 @@ export default {
             localStorage.removeItem('bigStore.cart')
             this.change()
             this.$router.push('/')
+            location.reload();
         },
         showItemsInCart() {
             const orderArray = JSON.parse(localStorage.getItem('bigStore.cart'));

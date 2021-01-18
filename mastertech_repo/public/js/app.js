@@ -303,6 +303,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
   data: function data() {
@@ -321,6 +322,7 @@ __webpack_require__.r(__webpack_exports__);
         units: "",
         price: "",
         description: "",
+        category: "",
         image: false
       };
     }
@@ -396,6 +398,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -422,7 +426,8 @@ __webpack_require__.r(__webpack_exports__);
         units: null,
         price: null,
         image: null,
-        description: null
+        description: null,
+        category: null
       };
     },
     endEditing: function endEditing(product) {
@@ -434,11 +439,13 @@ __webpack_require__.r(__webpack_exports__);
       var units = product.units;
       var price = product.price;
       var description = product.description;
+      var category = product.category;
       axios.put("/api/products/".concat(product.id), {
         name: name,
         units: units,
         price: price,
-        description: description
+        description: description,
+        category: category
       }).then(function (response) {
         return _this2.products[index] = product;
       });
@@ -452,11 +459,13 @@ __webpack_require__.r(__webpack_exports__);
       var price = product.price;
       var description = product.description;
       var image = product.image;
+      var category = product.category;
       axios.post("/api/products/", {
         name: name,
         units: units,
         price: price,
         description: description,
+        category: category,
         image: image
       }).then(function (response) {
         return _this3.products.push(product);
@@ -751,6 +760,7 @@ __webpack_require__.r(__webpack_exports__);
       localStorage.removeItem('bigStore.cart');
       this.change();
       this.$router.push('/');
+      location.reload();
     },
     showItemsInCart: function showItemsInCart() {
       var orderArray = JSON.parse(localStorage.getItem('bigStore.cart'));
@@ -1165,6 +1175,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1847,7 +1862,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Ro
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Potta+One&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\na[data-v-63cd6604] {\n    text-decoration: none;\n}\n.small-text[data-v-63cd6604] {\n    font-size: 14px;\n}\n.prod-img-container[data-v-63cd6604] {\n    width: 300px;\n    height: 450px;\n    display: flex;\n    align-items: baseline;\n    justify-content: center;\n}\n.product-img[data-v-63cd6604] {\n    width: 100%;\n    object-fit: contain;\n    transition: transform .2s;\n}\n.product-img[data-v-63cd6604]:hover {\n    transform: scale(1.1);\n}\n.hero-section[data-v-63cd6604] {\n    height: fit-content;\n    align-items: center;\n}\n.title[data-v-63cd6604] {\n    font-family: 'Roboto', sans-serif;\n    font-size: 30px;\n    text-align: center;\n}\n.col-md-12[data-v-63cd6604] {\n    padding-left: 5vw;\n    padding-right: 5vw;\n}\n.row[data-v-63cd6604] {\n    display: flex;\n    width: 100%;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    font-family: 'Roboto', sans-serif;\n}\n.banner[data-v-63cd6604] {\n    width: 100%;\n}\n.product-box[data-v-63cd6604] {\n    min-width: 350px;\n    height: 550px;\n    display: flex;\n    align-items: center;\n    margin: 25px;\n}\n.product-box h5[data-v-63cd6604] {\n    width: 100%;\n    margin: 0;\n    color: black;\n    text-decoration: none;\n    display: flex;\n    flex-direction: column;\n    font-size: 16px;\n    padding-top: 15px;\n    padding-bottom: 15px;\n}\n.product-box h5 span[data-v-63cd6604] {\n    text-decoration: none;\n    font-size: 16px;\n    padding: 5px;\n}\n.product-info-container[data-v-63cd6604] {\n    width: 100%;\n    height: 100%;\n}\n.buynow[data-v-63cd6604] {\n    width: 100%;\n    border: none;\n    height: 5vh;\n    background-color: #0c2a35;\n    color: white;\n    font-weight: 300;\n    transition: transform .2s;\n}\n.buynow[data-v-63cd6604]:hover {\n    transition: scale(1.2);\n    cursor: pointer;\n}\n.rea[data-v-63cd6604] {\n    background-color: black;\n    color:white;\n    font-family: 'Roboto', sans-serif;\n    font-size: 24px;\n    text-align: center;\n}\n\n", ""]);
+exports.push([module.i, "\na[data-v-63cd6604] {\n    text-decoration: none;\n}\n.small-text[data-v-63cd6604] {\n    font-size: 14px;\n}\n.prod-img-container[data-v-63cd6604] {\n    width: 300px;\n    height: 450px;\n    display: flex;\n    align-items: baseline;\n    justify-content: center;\n}\n.product-img[data-v-63cd6604] {\n    width: 100%;\n    object-fit: contain;\n    transition: transform .2s;\n}\n.product-img[data-v-63cd6604]:hover {\n    transform: scale(1.1);\n}\n.hero-section[data-v-63cd6604] {\n    height: fit-content;\n    align-items: center;\n}\n.title[data-v-63cd6604] {\n    font-family: 'Roboto', sans-serif;\n    font-size: 30px;\n    text-align: center;\n}\n.col-md-12[data-v-63cd6604] {\n    padding-left: 5vw;\n    padding-right: 5vw;\n}\n.row[data-v-63cd6604] {\n    display: flex;\n    width: 100%;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    font-family: 'Roboto', sans-serif;\n}\n.banner[data-v-63cd6604] {\n    width: 100%;\n}\n.product-box[data-v-63cd6604] {\n    min-width: 350px;\n    height: 550px;\n    display: flex;\n    align-items: center;\n    margin: 25px;\n}\n.product-box h5[data-v-63cd6604] {\n    width: 100%;\n    margin: 0;\n    color: black;\n    text-decoration: none;\n    display: flex;\n    flex-direction: column;\n    font-size: 16px;\n    padding-top: 15px;\n    padding-bottom: 15px;\n}\n.product-box h5 span[data-v-63cd6604] {\n    text-decoration: none;\n    font-size: 16px;\n    padding: 5px;\n}\n.product-info-container[data-v-63cd6604] {\n    width: 100%;\n    height: 100%;\n}\n.buynow[data-v-63cd6604] {\n    width: 100%;\n    border: none;\n    height: 5vh;\n    background-color: #0c2a35;\n    color: white;\n    font-weight: 300;\n    transition: transform .2s;\n}\n.buynow[data-v-63cd6604]:hover {\n    transition: scale(1.2);\n    cursor: pointer;\n}\n.rea[data-v-63cd6604] {\n    background-color: black;\n    color:white;\n    font-family: 'Roboto', sans-serif;\n    font-size: 24px;\n    text-align: center;\n}\n.cat-container[data-v-63cd6604] {\n    background-color: black;\n    color: white;\n    display: flex;\n    align-items: center;\n}\n.category-menu[data-v-63cd6604] {\n    text-align: center;\n    width: 13%;\n    padding: 15px;\n    border-right: 1px solid white;\n}\n\n", ""]);
 
 // exports
 
@@ -3669,6 +3684,29 @@ var render = function() {
                 }
               }),
               _c("br"),
+              _vm._v("\n                    Kategori: "),
+              _c("br"),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.data.category,
+                    expression: "data.category"
+                  }
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.data.category },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.data, "category", $event.target.value)
+                  }
+                }
+              }),
+              _c("br"),
               _vm._v("\n                    Beskrivning: "),
               _c("br"),
               _c("textarea", {
@@ -3819,14 +3857,28 @@ var render = function() {
                     "td",
                     {
                       model: {
-                        value: product.price,
+                        value: product.description,
                         callback: function($$v) {
-                          _vm.$set(product, "price", $$v)
+                          _vm.$set(product, "description", $$v)
                         },
-                        expression: "product.price"
+                        expression: "product.description"
                       }
                     },
                     [_vm._v(_vm._s(product.description))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      model: {
+                        value: product.category,
+                        callback: function($$v) {
+                          _vm.$set(product, "category", $$v)
+                        },
+                        expression: "product.category"
+                      }
+                    },
+                    [_vm._v(_vm._s(product.category))]
                   )
                 ]
               )
@@ -3890,7 +3942,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [_vm._v("Pris")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Beskrivning")])
+        _c("td", [_vm._v("Beskrivning")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Kategori")])
       ])
     ])
   }
@@ -5048,7 +5102,41 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass:
+            "container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto"
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "cat-container" },
+            [
+              _c("div", { staticClass: "category-menu" }, [
+                _vm._v("Alla produkter")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.products, function(product, index) {
+                return _c(
+                  "div",
+                  {
+                    key: product,
+                    staticClass: "category-menu",
+                    on: { key: index }
+                  },
+                  [_vm._v(_vm._s(product.category))]
+                )
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c("h2", { staticClass: "title" }, [_vm._v("Våra produkter")]),
+          _vm._v(" "),
+          _c("hr")
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
@@ -5089,6 +5177,14 @@ var render = function() {
                               {
                                 staticClass: "small-text text-muted float-right"
                               },
+                              [_vm._v(_vm._s(product.category))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "small-text text-muted float-right"
+                              },
                               [_vm._v(_vm._s(product.price) + " SEK")]
                             )
                           ]),
@@ -5116,25 +5212,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto"
-      },
-      [
-        _c("h2", { staticClass: "title" }, [_vm._v("Våra produkter")]),
-        _vm._v(" "),
-        _c("hr")
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

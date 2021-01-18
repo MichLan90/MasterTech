@@ -10,6 +10,10 @@
                 </div>
               <img src="https://nextshop.pk/wp-content/uploads/2018/08/New-Refurbished-Banner.jpg" class="banner" alt="tech-banner" border="0">
             <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
+                <div class="cat-container">
+                    <div class="category-menu">Alla produkter</div>
+                    <div class="category-menu" v-for="(product,index) in products" @key="index" v-bind:key="product">{{product.category}}</div>
+                </div>
                 <h2 class="title">Våra produkter</h2>
                 <hr>
             </div>
@@ -23,6 +27,7 @@
                                     <img :src="product.image" :alt="product.name" class="product-img">
                                     </div>
                                     <h5><span v-html="product.name"></span>
+                                        <span class="small-text text-muted float-right">{{product.category}}</span>
                                         <span class="small-text text-muted float-right">{{product.price}} SEK</span>
                                     </h5>
                                     <button class="col-md-4 btn btn-sm btn-primary float-right buynow">Visa mer >>></button>
@@ -158,6 +163,20 @@
         font-size: 24px;
         text-align: center;
 
+    }
+
+    .cat-container {
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+    }
+
+    .category-menu {
+        text-align: center;
+        width: 13%;
+        padding: 15px;
+        border-right: 1px solid white;
     }
 
     </style>

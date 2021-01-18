@@ -9,6 +9,7 @@
                         <td>Antal</td>
                         <td>Pris</td>
                         <td>Beskrivning</td>
+                        <td>Kategori</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -17,7 +18,8 @@
                         <td v-html="product.name"></td>
                         <td v-model="product.units">{{product.units}}</td>
                         <td v-model="product.price">{{product.price}}</td>
-                        <td v-model="product.price">{{product.description}}</td>
+                        <td v-model="product.description">{{product.description}}</td>
+                        <td v-model="product.category">{{product.category}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -53,6 +55,7 @@
                     price: null,
                     image: null,
                     description: null,
+                    category: null,
                 }
             },
             endEditing(product) {
@@ -63,8 +66,9 @@
                 let units = product.units
                 let price = product.price
                 let description = product.description
+                let category = product.category
 
-                axios.put(`/api/products/${product.id}`, {name, units, price, description})
+                axios.put(`/api/products/${product.id}`, {name, units, price, description, category})
                      .then(response => this.products[index] = product)
             },
             addProduct(product) {
@@ -75,8 +79,9 @@
                 let price = product.price
                 let description = product.description
                 let image = product.image 
+                let category = product.category
 
-                axios.post("/api/products/", {name, units, price, description, image})
+                axios.post("/api/products/", {name, units, price, description, category, image})
                      .then(response => this.products.push(product))
             }
         }

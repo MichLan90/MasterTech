@@ -9,7 +9,7 @@
         use SoftDeletes;
 
         protected $fillable = [
-            'name', 'price', 'units', 'description', 'image'
+            'name', 'price', 'units', 'description', 'category', 'image'
         ];
 
         public function orders(){
