@@ -62,7 +62,7 @@
 
     .prod-img-container {
         width: 300px;
-        height: 450px;
+        height: fit-content;
         display: flex;
         align-items: baseline;
         justify-content: center;
@@ -107,7 +107,7 @@
     
     .product-box {
         min-width: 350px;
-        height: 550px;
+        height: 650px;
         display: flex;
         align-items: center;
         margin: 25px;
@@ -173,5 +173,23 @@
         padding: 15px;
         border-right: 1px solid white;
     }
+
+    @media only screen and (max-width: 768px) {
+    .product-box {
+        width: 350px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        margin: 25px;
+    }
+    .row {
+        justify-content: center;
+    }
+    .col-md-12 {
+        padding: 0;
+    }
+
+}
+
 
     </style>

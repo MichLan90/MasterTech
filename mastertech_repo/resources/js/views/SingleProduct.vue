@@ -132,4 +132,10 @@
     .button-style:active {
         font-size: 10px;
     }
+
+@media only screen and (max-width: 768px) {
+    .single-img {
+        object-fit: contain;
+    }
+}
     </style>

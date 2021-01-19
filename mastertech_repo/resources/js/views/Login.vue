@@ -49,8 +49,7 @@
                         let password = this.password
 
                         axios.post('api/login', {email, password}).then(response => {
-                            console.log('this is the status' + response.status)
-                            console.log(response + " " + status)
+                            console.log(response)
                             
                                 let user = response.data.user
                                 let is_admin = user.is_admin 

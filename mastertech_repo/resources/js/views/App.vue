@@ -164,7 +164,7 @@ nav .container a {
     justify-content: flex-end;
     margin: 0;
     display: flex;
-    padding: 0;
+    padding: 0 20px 0 0;
     color: white;
     background-color: #0c2a35;
 }
@@ -174,7 +174,7 @@ nav .container a {
     justify-content: flex-start;
     margin: 0;
     display: flex;
-    padding: 0;
+    padding: 0 0 0 20px;
     color: white;
     background-color: #0c2a35;
 }
@@ -242,5 +242,23 @@ footer {
 
 .social-link:hover {
     background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .column {
+        margin: 0;
+        padding: 20px;
+        width: 95%;
+    }
+}
+@media only screen and (max-width: 412px) {
+    .column {
+        padding: 0px;
+        width: 100%;
+    }
 }
 </style>

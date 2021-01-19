@@ -21,7 +21,7 @@
                                 <router-link :to="{ path: '/checkingout' }" v-if="cartLength">Gå till betalning och leverans</router-link>
                             </div>
                             <div class="product-container" style="justify-content: center;" v-if="!cartLength">
-                                Inga produkt hittades i kundvagnen.
+                                Inga produkter hittades.
                             </div>
                         </div>
             </div>
