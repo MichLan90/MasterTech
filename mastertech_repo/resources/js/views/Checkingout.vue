@@ -4,6 +4,7 @@
                         <h2 style="text-align: center; font-size: 24px;">Sammanfattning av din beställning</h2>
 
                         <div class="main-cont-all">
+            <!-- KUNDVAGNEN -->
                             <div class="product-container titles" v-if="cartLength">                      
                                 <div class="prod-child name"><b>Namn</b></div>
                                 <div class="prod-child qnt"><b>Antal</b></div>
@@ -12,23 +13,33 @@
                             <div class="product-container" v-if="cartLength" v-for="product in orderArray">                             
                                 <div class="prod-child name">{{product.product_name}}</div>
                                 <div class="prod-child qnt">{{product.quantity}}</div>
-                                <div class="prod-child price">{{product.product_price * product.quantity}}</div>                                                              
+                                <div class="prod-child price">{{product.product_price * product.quantity}} :-</div>                                                              
                             </div>
 
-                            <div class="product-container titles" v-if="cartLength">
-                                <div>Totalt: FUNCTION TODO</div>
+                            <div class="product-container titles" v-if="cartLength" style="justify-content: flex-end">
+                                <div v-ref="totPrice" class="totprice">Totalt: {{totPrice}} SEK</div>
                             </div>
                             <br><br>
-                            <div class="other-container" v-if="cartLength">
-                                <h2 style="text-align: center; font-size: 24px;">Leveransalternativ</h2>
-                                 <p>Välj en alternativ:</p>
-                                    <input type="radio" id="ship-option1" name="shipping" value="option1">
-                                    <label for="ship-option1">Option 1</label><br>
-                                    <input type="radio" id="ship-option2" name="shipping" value="option2">
-                                    <label for="ship-option2">Option 2</label><br>
-                                    <input type="radio" id="ship-option3" name="shipping" value="option3">
-                                    <label for="ship-option3">Option 3</label><br>   
+            <!-- LEVERANS -->
+                            <div class="other-container delivery" v-if="cartLength">
+                            <h2 style="text-align: center; font-size: 24px;">Leveransalternativ:</h2>
+                                <select class="options-deliv" v-model="product.selectedCarrier">
+                                    <option class="options-deliv" 
+                                        v-bind:value="{name: carrier.name, price: carrier.price, time: carrier.time}" v-for="carrier in carriers">
+                                        {{ carrier.name }}
+                                    </option>
+                                </select>
                             </div>
+                            <div class="product-container" v-if="cartLength" style="flex-direction: column; align-items: right;">
+                                <div style="font-size: 15px;">Förväntad leveranstid: {{ product.selectedCarrier.time }}</div><br>
+                                <div class="totprice big">Leveranspris: {{ product.selectedCarrier.price }} SEK</div>
+                            </div>
+            <!-- TOT. ATT BETALA -->
+                            <div class="topay" v-if="cartLength">
+                            <p>Tot. att betala: <b>{{ totPrice + product.selectedCarrier.price }} SEK</b></p>
+                            </div>
+
+            <!-- BETALNING -->
                             <br><br>
                             <div class="other-container" v-if="cartLength">
                                 <h2 style="text-align: center; font-size: 24px;">Betalningalternativ</h2>
@@ -58,13 +69,27 @@
                 orderArray : JSON.parse(localStorage.getItem('bigStore.cart')),
                 isLoggedIn : null,
                 product : [],
-                arrayOfOrders: []
+                arrayOfOrders: [],
+                totPrice : this.totalPrice(),
+                product: {
+                        selectedCarrier: {
+                            name: 'PostNord',
+                            price: 49,
+                            time: '5-6 arbetsdagar'
+                        }
+                    },                   
+                    carriers: [
+                        {name: 'PostNord', price: 49, time: '5-6 arbetsdagar'},
+                        {name: 'DHL', price: 79, time: '2-3 arbetsdagar'},
+                        {name: 'Hämta i butik', price: 0, time: 'Vi förbereder ditt paket inom 2 timmar'}  
+                    ]
             }
         },
         mounted() {
             this.isLoggedIn = localStorage.getItem('bigStore.jwt') != null
         },
         beforeMount(){
+            this.totalPrice();
             this.showCart();
             let url = `/api/products/${this.$route.params.id}`
             axios.get(url).then(response => this.product = response.data)      
@@ -75,6 +100,16 @@
             },
             register() {
                 this.$router.push({name: 'register', params: {nextUrl: this.$route.fullPath}})
+            },
+            totalPrice() {
+                let orderArray = JSON.parse(localStorage.getItem('bigStore.cart'));
+                let totalPrice = 0;
+                for (let i = 0; i < orderArray.length; i++) {
+                    totalPrice = totalPrice + orderArray[i].product_price * orderArray[i].quantity             
+                } 
+                return totalPrice;
+                let print = document.getElementById("totprice");
+                print.innerText = totalPrice
             },
             placeOrder(e) {
                     e.preventDefault()
@@ -120,7 +155,6 @@
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
         border-bottom: 1px solid black;
         width: 70%;
         justify-content: center;
@@ -172,5 +206,36 @@
         transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);
         color: white;
         background-color: #0c2a35;
+    }
+
+    .totprice {
+        text-align: right;
+        font-size: 18px;
+        font-weight: bolder;
+        padding-right: 20px;
+    }
+
+
+    .delivery {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .options-deliv {
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+
+    .topay {
+        margin: 0 auto;
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 70%;
+        justify-content: flex-end;
+        font-size: 24px;
     }
     </style>

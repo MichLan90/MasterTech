@@ -813,7 +813,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -893,6 +892,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -947,13 +959,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
+    var _ref;
+
+    return _ref = {
       cartLength: JSON.parse(localStorage.getItem('bigStore.cart')).length,
       orderArray: JSON.parse(localStorage.getItem('bigStore.cart')),
       isLoggedIn: null,
       product: [],
-      arrayOfOrders: []
-    };
+      arrayOfOrders: [],
+      totPrice: this.totalPrice()
+    }, _defineProperty(_ref, "product", {
+      selectedCarrier: {
+        name: 'PostNord',
+        price: 49,
+        time: '5-6 arbetsdagar'
+      }
+    }), _defineProperty(_ref, "carriers", [{
+      name: 'PostNord',
+      price: 49,
+      time: '5-6 arbetsdagar'
+    }, {
+      name: 'DHL',
+      price: 79,
+      time: '2-3 arbetsdagar'
+    }, {
+      name: 'Hämta i butik',
+      price: 0,
+      time: 'Vi förbereder ditt paket inom 2 timmar'
+    }]), _ref;
   },
   mounted: function mounted() {
     this.isLoggedIn = localStorage.getItem('bigStore.jwt') != null;
@@ -961,6 +994,7 @@ __webpack_require__.r(__webpack_exports__);
   beforeMount: function beforeMount() {
     var _this = this;
 
+    this.totalPrice();
     this.showCart();
     var url = "/api/products/".concat(this.$route.params.id);
     axios.get(url).then(function (response) {
@@ -983,6 +1017,18 @@ __webpack_require__.r(__webpack_exports__);
           nextUrl: this.$route.fullPath
         }
       });
+    },
+    totalPrice: function totalPrice() {
+      var orderArray = JSON.parse(localStorage.getItem('bigStore.cart'));
+      var totalPrice = 0;
+
+      for (var i = 0; i < orderArray.length; i++) {
+        totalPrice = totalPrice + orderArray[i].product_price * orderArray[i].quantity;
+      }
+
+      return totalPrice;
+      var print = document.getElementById("totprice");
+      print.innerText = totalPrice;
     },
     placeOrder: function placeOrder(e) {
       e.preventDefault();
@@ -1834,7 +1880,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.main-cont-all[data-v-416c4e36] {\n    width: 100%;\n}\n.product-container[data-v-416c4e36] {\n    margin: 0 auto;\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    border-bottom: 1px solid black;\n    width: 70%;\n    justify-content: center;\n}\n.other-container[data-v-416c4e36] {\n    margin: 0 auto;        \n    border-bottom: 1px solid black;\n    width: 70%;\n}\n.prod-child[data-v-416c4e36] {\n    width: 20%;\n    padding: 10px;\n}\n.img[data-v-416c4e36] {\n    width:10%;\n    margin: 10px;\n}\n.titles[data-v-416c4e36] {\n    font-size: 14px;\n}\n.removebtn[data-v-416c4e36] {\n    background-color: red;\n    border: black 1px solid;\n    width: 80px;\n    height: 40px;\n}\n.proceed[data-v-416c4e36] {\n    text-align: center;\n    width: 100%;\n    height: 2vh;\n    margin-top: 20px;\n}\n.proceed button[data-v-416c4e36] {\n    text-decoration: none;\n    color: black;\n    padding: 10px;\n    background-color: #EAEAEA;\n    border-radius: 10px;\n}\n.proceed button[data-v-416c4e36]:hover {\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\n    color: white;\n    background-color: #0c2a35;\n}\n", ""]);
+exports.push([module.i, "\n.main-cont-all[data-v-416c4e36] {\n    width: 100%;\n}\n.product-container[data-v-416c4e36] {\n    margin: 0 auto;\n    display: flex;\n    flex-wrap: wrap;\n    border-bottom: 1px solid black;\n    width: 70%;\n    justify-content: center;\n}\n.other-container[data-v-416c4e36] {\n    margin: 0 auto;        \n    border-bottom: 1px solid black;\n    width: 70%;\n}\n.prod-child[data-v-416c4e36] {\n    width: 20%;\n    padding: 10px;\n}\n.img[data-v-416c4e36] {\n    width:10%;\n    margin: 10px;\n}\n.titles[data-v-416c4e36] {\n    font-size: 14px;\n}\n.removebtn[data-v-416c4e36] {\n    background-color: red;\n    border: black 1px solid;\n    width: 80px;\n    height: 40px;\n}\n.proceed[data-v-416c4e36] {\n    text-align: center;\n    width: 100%;\n    height: 2vh;\n    margin-top: 20px;\n}\n.proceed button[data-v-416c4e36] {\n    text-decoration: none;\n    color: black;\n    padding: 10px;\n    background-color: #EAEAEA;\n    border-radius: 10px;\n}\n.proceed button[data-v-416c4e36]:hover {\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\n    color: white;\n    background-color: #0c2a35;\n}\n.totprice[data-v-416c4e36] {\n    text-align: right;\n    font-size: 18px;\n    font-weight: bolder;\n    padding-right: 20px;\n}\n.delivery[data-v-416c4e36] {\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n}\n.options-deliv[data-v-416c4e36] {\n    padding: 10px;\n    text-align: center;\n    border-radius: 10px;\n    font-size: 15px;\n}\n.topay[data-v-416c4e36] {\n    margin: 0 auto;\n    margin-top: 50px;\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    width: 70%;\n    justify-content: flex-end;\n    font-size: 24px;\n}\n", ""]);
 
 // exports
 
@@ -4554,14 +4600,6 @@ var render = function() {
                         { attrs: { to: { path: "/checkingout" } } },
                         [_vm._v("Gå till betalning och leverans")]
                       )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.cartLength
-                    ? _c(
-                        "router-link",
-                        { attrs: { to: { path: "/checkout" } } },
-                        [_vm._v("Old checkout")]
-                      )
                     : _vm._e()
                 ],
                 1
@@ -4669,74 +4707,154 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "prod-child price" }, [
-                    _vm._v(_vm._s(product.product_price * product.quantity))
+                    _vm._v(
+                      _vm._s(product.product_price * product.quantity) + " :-"
+                    )
                   ])
                 ])
               : _vm._e()
           }),
           _vm._v(" "),
           _vm.cartLength
-            ? _c("div", { staticClass: "product-container titles" }, [
-                _c("div", [_vm._v("Totalt: FUNCTION TODO")])
-              ])
+            ? _c(
+                "div",
+                {
+                  staticClass: "product-container titles",
+                  staticStyle: { "justify-content": "flex-end" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "ref",
+                          rawName: "v-ref",
+                          value: _vm.totPrice,
+                          expression: "totPrice"
+                        }
+                      ],
+                      staticClass: "totprice"
+                    },
+                    [_vm._v("Totalt: " + _vm._s(_vm.totPrice) + " SEK")]
+                  )
+                ]
+              )
             : _vm._e(),
           _vm._v(" "),
           _c("br"),
           _c("br"),
           _vm._v(" "),
           _vm.cartLength
-            ? _c("div", { staticClass: "other-container" }, [
+            ? _c("div", { staticClass: "other-container delivery" }, [
                 _c(
                   "h2",
                   {
                     staticStyle: { "text-align": "center", "font-size": "24px" }
                   },
-                  [_vm._v("Leveransalternativ")]
+                  [_vm._v("Leveransalternativ:")]
                 ),
                 _vm._v(" "),
-                _c("p", [_vm._v("Välj en alternativ:")]),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "radio",
-                    id: "ship-option1",
-                    name: "shipping",
-                    value: "option1"
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.selectedCarrier,
+                        expression: "product.selectedCarrier"
+                      }
+                    ],
+                    staticClass: "options-deliv",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.product,
+                          "selectedCarrier",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.carriers, function(carrier) {
+                    return _c(
+                      "option",
+                      {
+                        staticClass: "options-deliv",
+                        domProps: {
+                          value: {
+                            name: carrier.name,
+                            price: carrier.price,
+                            time: carrier.time
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(carrier.name) +
+                            "\n                            "
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.cartLength
+            ? _c(
+                "div",
+                {
+                  staticClass: "product-container",
+                  staticStyle: {
+                    "flex-direction": "column",
+                    "align-items": "right"
                   }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "ship-option1" } }, [
-                  _vm._v("Option 1")
-                ]),
-                _c("br"),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "radio",
-                    id: "ship-option2",
-                    name: "shipping",
-                    value: "option2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "ship-option2" } }, [
-                  _vm._v("Option 2")
-                ]),
-                _c("br"),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "radio",
-                    id: "ship-option3",
-                    name: "shipping",
-                    value: "option3"
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "ship-option3" } }, [
-                  _vm._v("Option 3")
-                ]),
-                _c("br")
+                },
+                [
+                  _c("div", { staticStyle: { "font-size": "15px" } }, [
+                    _vm._v(
+                      "Förväntad leveranstid: " +
+                        _vm._s(_vm.product.selectedCarrier.time)
+                    )
+                  ]),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "totprice big" }, [
+                    _vm._v(
+                      "Leveranspris: " +
+                        _vm._s(_vm.product.selectedCarrier.price) +
+                        " SEK"
+                    )
+                  ])
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.cartLength
+            ? _c("div", { staticClass: "topay" }, [
+                _c("p", [
+                  _vm._v("Tot. att betala: "),
+                  _c("b", [
+                    _vm._v(
+                      _vm._s(_vm.totPrice + _vm.product.selectedCarrier.price) +
+                        " SEK"
+                    )
+                  ])
+                ])
               ])
             : _vm._e(),
           _vm._v(" "),
