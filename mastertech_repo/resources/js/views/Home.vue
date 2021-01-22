@@ -63,9 +63,7 @@
     .prod-img-container {
         width: 300px;
         height: fit-content;
-        display: flex;
-        align-items: baseline;
-        justify-content: center;
+        margin: 0 auto;
     }
 
     .product-img {
@@ -135,6 +133,16 @@
         width: 100%;
         height: 100%;
     }
+
+    .product-info-container a {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+
+    }
+
 
     .buynow {
         width: 100%;
