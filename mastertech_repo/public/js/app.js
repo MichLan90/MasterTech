@@ -1032,7 +1032,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     placeOrder: function placeOrder(e) {
       e.preventDefault();
-      var address = this.address;
       var product_id = this.product.id;
       var quantity = this.quantity; //remark these lines, change with storing to arrayOfOrders data instead of doing post request
       //axios.post('api/orders/', {address, quantity, product_id})
@@ -1040,8 +1039,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.arrayOfOrders.push({
         product_id: product_id,
-        quantity: quantity,
-        address: address
+        quantity: quantity
       });
     },
     postData: function postData() {

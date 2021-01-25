@@ -113,8 +113,6 @@
             },
             placeOrder(e) {
                     e.preventDefault()
-
-                    let address = this.address
                     let product_id = this.product.id
                     let quantity = this.quantity
                     //remark these lines, change with storing to arrayOfOrders data instead of doing post request
@@ -124,7 +122,6 @@
                     this.arrayOfOrders.push({
                         product_id:product_id,
                         quantity:quantity, 
-                        address:address
                     });
             },
             postData(){

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -27,17 +28,20 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $order = Order::create([
+        $user = Auth::user();
+        $orderStored = $user -> User::orders()->createMany($request->data);
+
+        /*$order = Order::create([
             'product_id' => $request->product_id,
             'user_id' => Auth::id(),
             'quantity' => $request->quantity,
             'address' => $request->address
-        ]);
+        ]);*/
 
         return response()->json([
-            'status' => (bool) $order,
-            'data'   => $order,
-            'message' => $order ? 'Order Created!' : 'Error Creating Order'
+            'status' => (bool) $orderStored,
+            'data'   => $orderStored,
+            'message' => $orderStored ? 'Order Created!' : 'Error Creating Order'
         ]);
     }
 
