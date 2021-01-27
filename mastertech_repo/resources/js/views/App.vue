@@ -4,8 +4,8 @@
                 <div class="container">
                 <router-link :to="{name: 'home'}" class="navbar-brand">MasterTech.se</router-link>
                   <span v-if="isLoggedIn" class="isLoggedin">
-                                <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Välkommen, {{name}}</router-link>
-                                <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Välkommen, {{name}}</router-link>
+                                <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hej, {{name}}</router-link>
+                                <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hej, {{name}}</router-link>
             
                             </span>
                    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -253,6 +253,10 @@ footer {
         margin: 0;
         padding: 20px;
         width: 95%;
+    }
+
+    .nav-link {
+        padding: 0;
     }
 }
 @media only screen and (max-width: 412px) {

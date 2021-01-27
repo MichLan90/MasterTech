@@ -183,20 +183,25 @@
     }
 
     @media only screen and (max-width: 768px) {
-    .product-box {
-        width: 350px;
-        height: fit-content;
-        display: flex;
-        align-items: center;
-        margin: 25px;
-    }
-    .row {
-        justify-content: center;
-    }
-    .col-md-12 {
-        padding: 0;
+        .product-box {
+            width: 350px;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            margin: 25px;
+        }
+        .row {
+            justify-content: center;
+        }
+        .col-md-12 {
+            padding: 0;
+        }
     }
 
+    @media only screen and (max-width: 412px) {
+      .product-box {
+            margin: 20px 0 20px 0;
+        }
 }
 
 
