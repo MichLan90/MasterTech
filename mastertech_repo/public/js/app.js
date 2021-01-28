@@ -1031,25 +1031,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       print.innerText = totalPrice;
     },
     placeOrder: function placeOrder(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var product_id = this.product.id;
       var quantity = this.quantity; //remark these lines, change with storing to arrayOfOrders data instead of doing post request
-      //axios.post('api/orders/', {address, quantity, product_id})
-      //.then(response => this.$router.push('/confirmation'))
 
-      this.arrayOfOrders.push({
-        product_id: product_id,
-        quantity: quantity
+      axios.post('api/orders/', {
+        quantity: quantity,
+        product_id: product_id
+      }).then(function (response) {
+        return _this2.$router.push('/confirmation');
       });
+      /*this.arrayOfOrders.push({
+          product_id:product_id,
+          quantity:quantity, 
+      });*/
     },
     postData: function postData() {
-      var _this2 = this;
+      var _this3 = this;
 
       var instance = this;
       axios.post('api/orders/', {
         data: instance.arrayOfOrders
       }).then(function (response) {
-        return _this2.$router.push('/confirmation');
+        return _this3.$router.push('/confirmation');
       });
     },
     checkUnits: function checkUnits(e) {
@@ -4918,7 +4924,9 @@ var render = function() {
       _vm._v(" "),
       _vm.cartLength
         ? _c("div", { staticClass: "proceed" }, [
-            _c("button", { on: { click: _vm.postData } }, [_vm._v("Bekräfta")])
+            _c("button", { on: { click: _vm.placeOrder } }, [
+              _vm._v("Bekräfta")
+            ])
           ])
         : _vm._e()
     ])

@@ -54,7 +54,7 @@
                             </div>
                             <br><br>
                             <div class="proceed" v-if="cartLength">
-                                <button @click="postData">Bekräfta</button>
+                                <button @click="placeOrder">Bekräfta</button>
                             </div>
                         </div>
             </div>
@@ -116,13 +116,13 @@
                     let product_id = this.product.id
                     let quantity = this.quantity
                     //remark these lines, change with storing to arrayOfOrders data instead of doing post request
-                    //axios.post('api/orders/', {address, quantity, product_id})
-                            //.then(response => this.$router.push('/confirmation'))
+                    axios.post('api/orders/', {quantity, product_id})
+                            .then(response => this.$router.push('/confirmation'))
 
-                    this.arrayOfOrders.push({
+                    /*this.arrayOfOrders.push({
                         product_id:product_id,
                         quantity:quantity, 
-                    });
+                    });*/
             },
             postData(){
                 let instance = this;

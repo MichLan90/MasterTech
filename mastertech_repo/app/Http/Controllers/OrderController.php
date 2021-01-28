@@ -28,20 +28,21 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $user = Auth::user();
-        $orderStored = $user -> User::orders()->createMany($request->data);
+        //$user = Auth::user();
+        //$orderStored = $user -> User::orders()->createMany($request->data);
+        //print_r($user);
 
-        /*$order = Order::create([
+        $order = Order::create([
             'product_id' => $request->product_id,
             'user_id' => Auth::id(),
             'quantity' => $request->quantity,
             'address' => $request->address
-        ]);*/
+        ]);
 
         return response()->json([
-            'status' => (bool) $orderStored,
-            'data'   => $orderStored,
-            'message' => $orderStored ? 'Order Created!' : 'Error Creating Order'
+            'status' => (bool) $order,
+            'data'   => $order,
+            'message' => $order ? 'Order Created!' : 'Error Creating Order'
         ]);
     }
 
