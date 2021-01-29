@@ -4,16 +4,31 @@
                 <h2>
                     <span class="title"><strong>Thank You!</strong></span><br>
                     <span class="medium-text">Your order has been placed.</span><br>
-                    <router-link :to="{name: 'userboard'}" class="small-link">
-                        See your orders
-                    </router-link>
+                    <router-link :to="{ path: '/' }">GO BACK</router-link>
+                    <button @click="reload">Go back to store</button>
                 </h2>
             </div>
         </div>
     </template>
 
     <script>
-    export default {}
+          export default {
+            data(){
+                return {
+                    cartLength: JSON.parse(localStorage.getItem('bigStore.cart')).length,
+                    isLoggedIn: localStorage.getItem('bigStore.jwt') != null,
+                }
+            },
+            mounted(){
+                localStorage.removeItem('bigStore.cart')
+                cartLength = 0;
+            },
+            methods : {
+                reload() {
+                    location.reload();
+                }
+            }
+        }
     </script>
 
     <style scoped>

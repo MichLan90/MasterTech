@@ -4,7 +4,7 @@
                 <div class="container">
                 <router-link :to="{name: 'home'}" class="navbar-brand">MasterTech.se</router-link>
                   <span v-if="isLoggedIn" class="isLoggedin">
-                                <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hej, {{name}}</router-link>
+                                <a class="nav-link" v-if="user_type == 0"> Hej, {{name}}</a>
                                 <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hej, {{name}}</router-link>
             
                             </span>

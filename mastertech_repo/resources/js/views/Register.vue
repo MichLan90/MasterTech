@@ -77,7 +77,7 @@
                         this.$router.push((nextUrl != null ? nextUrl : '/'))
                     }
                 })
-                alert('Thank you for joining us! You can now log in')
+                alert('Tack för registrering! Du är nu inloggad.')
             }
         }
     }

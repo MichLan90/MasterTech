@@ -12,9 +12,6 @@
                             <li><button class="btn-admin" @click="setComponent('main')">Dashboard</button></li>
                             </div>
                             <div class="single-button">
-                            <li><button class="btn-admin" @click="setComponent('orders')">Orders</button></li>
-                            </div>
-                            <div class="single-button">
                             <li><button class="btn-admin" @click="setComponent('products')">Products</button></li>
                             </div>
                             <div class="single-button">
@@ -34,7 +31,6 @@
     import Main from '../components/admin/Main'
     import Users from '../components/admin/Users'
     import Products from '../components/admin/Products'
-    import Orders from '../components/admin/Orders'
 
     export default {
         data() {
@@ -44,7 +40,7 @@
             }
         },
         components: {
-            Main, Users, Products, Orders
+            Main, Users, Products
         },
         beforeMount() {
             this.setComponent(this.$route.params.page)
@@ -58,10 +54,6 @@
                     case "users":
                         this.activeComponent = Users
                         this.$router.push({name: 'admin-pages', params: {page: 'users'}})
-                        break;
-                    case "orders":
-                        this.activeComponent = Orders
-                        this.$router.push({name: 'admin-pages', params: {page: 'orders'}})
                         break;
                     case "products":
                         this.activeComponent = Products

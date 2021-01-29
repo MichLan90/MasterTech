@@ -2,9 +2,6 @@
         <div class="row dashboard">
         <h2>Översikt:</h2>
             <div class="col-md-4 product-box d-flex align-content-center justify-content-center flex-wrap big-text">
-                <p>Beställningar: ({{orders.length}})</p>
-            </div>
-            <div class="col-md-4 product-box d-flex align-content-center justify-content-center flex-wrap big-text">
                 <p>Produkter: ({{products.length}})</p>
             </div>
             <div class="col-md-4 product-box d-flex align-content-center justify-content-center flex-wrap big-text">
@@ -26,7 +23,6 @@
         mounted() {
             axios.get('/api/users/').then(response => this.users = response.data)
             axios.get('/api/products/').then(response => this.products = response.data)
-            axios.get('/api/orders/').then(response => this.orders = response.data)
         }
     }
     </script>

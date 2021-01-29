@@ -10,7 +10,6 @@ import Register from './views/Register'
 import SingleProduct from './views/SingleProduct'
 import Checkout from './views/Checkout'
 import Confirmation from './views/Confirmation'
-import UserBoard from './views/UserBoard'
 import Admin from './views/Admin'
 import Cart from './views/Cart'
 import Checkingout from './views/Checkingout'
@@ -66,15 +65,6 @@ const router = new VueRouter({
             component: Checkingout
         },
         {
-            path: '/dashboard',
-            name: 'userboard',
-            component: UserBoard,
-            meta: {
-                requiresAuth: true,
-                is_user: true
-            }
-        },
-        {
             path: '/admin/:page',
             name: 'admin-pages',
             component: Admin,
@@ -109,7 +99,7 @@ router.beforeEach((to, from, next) => {
                     next()
                 }
                 else {
-                    next({ name: 'userboard' })
+                    next({ name: '/' })
                 }
             }
             else if (to.matched.some(record => record.meta.is_user)) {

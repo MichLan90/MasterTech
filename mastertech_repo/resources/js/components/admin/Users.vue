@@ -7,7 +7,6 @@
                         <td>Namn</td>
                         <td>E-post</td>
                         <td>Användare skapades</td>
-                        <td>Beställningar</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -16,7 +15,6 @@
                         <td>{{user.name}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.created_at}}</td>
-                        <td>{{user.orders.length}}</td>
                     </tr>
                 </tbody>
             </table>
