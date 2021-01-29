@@ -44,17 +44,17 @@
                             <div class="other-container" v-if="cartLength">
                                 <h2 style="text-align: center; font-size: 24px;">Betalningalternativ</h2>
                                  <p>Välj en alternativ:</p>
-                                    <input type="radio" id="card" name="payment" value="option1">
-                                    <label for="card">Kort</label><br>
-                                    <input type="radio" id="swish" name="payment" value="option2">
-                                    <label for="swish">Swish</label><br>
+                                    <router-link :to="{ name: 'stripeCheckout' }">
+                                        <input type="radio" id="stripe" name="payment" value="option2">
+                                        <label for="stripe">Stripe</label>
+                                    </router-link><br>
                                     <input type="radio" id="cash" name="payment" value="option3">
                                     <label for="cash">Kontakt vid leverans</label><br>   
                             </div>
                             </div>
                             <br><br>
                             <div class="proceed" v-if="cartLength">
-                                <button @click="placeOrder">Bekräfta</button>
+                                <router-link :to="{ name: 'confirmation' }">Bekräfta!</router-link>
                             </div>
                         </div>
             </div>

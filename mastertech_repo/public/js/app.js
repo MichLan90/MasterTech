@@ -86,6 +86,19 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@vue-stripe/vue-stripe/dist/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@vue-stripe/vue-stripe/dist/index.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports,"__esModule",{value:!0});var STRIPE_JS_SDK_URL="https://js.stripe.com",SUPPORTED_LANGS=["auto","da","de","en","es","es-419","fi","fr","it","ja","nb","nl","pl","pt","sv","zh"],SUPPORTED_SUBMIT_TYPES=["auto","book","donate","pay"],BILLING_ADDRESS_COLLECTION_TYPES=["required","auto"],DEFAULT_ELEMENT_STYLE={base:{color:"#32325d",fontFamily:'"Helvetica Neue", Helvetica, sans-serif',fontSmoothing:"antialiased",fontSize:"16px","::placeholder":{color:"#aab7c4"}},invalid:{color:"#fa755a",iconColor:"#fa755a"}},loadStripeSdk=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"v3",t=arguments.length>1?arguments[1]:void 0;if(window.Stripe)t();else{var n=document.createElement("script");n.src="".concat(STRIPE_JS_SDK_URL,"/").concat(e),n.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(n),n.addEventListener("load",t)}},props={pk:{type:String,required:!0},mode:{type:String,validator:function(e){return["payment","subscription"].includes(e)}},lineItems:{type:Array,default:null},items:{type:Array},successUrl:{type:String,default:window.location.href},cancelUrl:{type:String,default:window.location.href},submitType:{type:String,validator:function(e){return SUPPORTED_SUBMIT_TYPES.includes(e)}},billingAddressCollection:{type:String,default:"auto",validator:function(e){return BILLING_ADDRESS_COLLECTION_TYPES.includes(e)}},clientReferenceId:{type:String},customerEmail:{type:String},sessionId:{type:String},locale:{type:String,default:"auto",validator:function(e){return SUPPORTED_LANGS.includes(e)}},shippingAddressCollection:{type:Object,validator:function(e){return Object.prototype.hasOwnProperty.call(e,"allowedCountries")}}},index={props:props,render:function(e){return e("div")},methods:{redirectToCheckout:function(){var e=this;this.$emit("loading",!0),loadStripeSdk("v3",(function(){try{var t=window.Stripe(e.pk);if(e.sessionId)return void t.redirectToCheckout({sessionId:e.sessionId});if(e.lineItems&&e.lineItems.length&&!e.mode)return void console.error("Error: Property 'mode' is required when using 'lineItems'. See https://stripe.com/docs/js/checkout/redirect_to_checkout#stripe_checkout_redirect_to_checkout-options-mode");var n={billingAddressCollection:e.billingAddressCollection,cancelUrl:e.cancelUrl,clientReferenceId:e.clientReferenceId,customerEmail:e.customerEmail,items:e.items,lineItems:e.lineItems,locale:e.locale,mode:e.mode,shippingAddressCollection:e.shippingAddressCollection,submitType:e.submitType,successUrl:e.successUrl};t.redirectToCheckout(n)}catch(t){console.error(t),e.$emit("error",t)}finally{e.$emit("loading",!1)}}))}}};function createCommonjsModule(e,t){return e(t={exports:{}},t.exports),t.exports}var runtime_1=createCommonjsModule((function(e){var t=function(e){var t,n=Object.prototype,r=n.hasOwnProperty,o="function"==typeof Symbol?Symbol:{},i=o.iterator||"@@iterator",s=o.asyncIterator||"@@asyncIterator",a=o.toStringTag||"@@toStringTag";function l(e,t,n,r){var o=t&&t.prototype instanceof f?t:f,i=Object.create(o.prototype),s=new k(r||[]);return i._invoke=function(e,t,n){var r=u;return function(o,i){if(r===p)throw new Error("Generator is already running");if(r===m){if("throw"===o)throw i;return O()}for(n.method=o,n.arg=i;;){var s=n.delegate;if(s){var a=w(s,n);if(a){if(a===h)continue;return a}}if("next"===n.method)n.sent=n._sent=n.arg;else if("throw"===n.method){if(r===u)throw r=m,n.arg;n.dispatchException(n.arg)}else"return"===n.method&&n.abrupt("return",n.arg);r=p;var l=c(e,t,n);if("normal"===l.type){if(r=n.done?m:d,l.arg===h)continue;return{value:l.arg,done:n.done}}"throw"===l.type&&(r=m,n.method="throw",n.arg=l.arg)}}}(e,n,s),i}function c(e,t,n){try{return{type:"normal",arg:e.call(t,n)}}catch(e){return{type:"throw",arg:e}}}e.wrap=l;var u="suspendedStart",d="suspendedYield",p="executing",m="completed",h={};function f(){}function y(){}function v(){}var _={};_[i]=function(){return this};var g=Object.getPrototypeOf,E=g&&g(g(L([])));E&&E!==n&&r.call(E,i)&&(_=E);var A=v.prototype=f.prototype=Object.create(_);function b(e){["next","throw","return"].forEach((function(t){e[t]=function(e){return this._invoke(t,e)}}))}function S(e){var t;this._invoke=function(n,o){function i(){return new Promise((function(t,i){!function t(n,o,i,s){var a=c(e[n],e,o);if("throw"!==a.type){var l=a.arg,u=l.value;return u&&"object"==typeof u&&r.call(u,"__await")?Promise.resolve(u.__await).then((function(e){t("next",e,i,s)}),(function(e){t("throw",e,i,s)})):Promise.resolve(u).then((function(e){l.value=e,i(l)}),(function(e){return t("throw",e,i,s)}))}s(a.arg)}(n,o,t,i)}))}return t=t?t.then(i,i):i()}}function w(e,n){var r=e.iterator[n.method];if(r===t){if(n.delegate=null,"throw"===n.method){if(e.iterator.return&&(n.method="return",n.arg=t,w(e,n),"throw"===n.method))return h;n.method="throw",n.arg=new TypeError("The iterator does not provide a 'throw' method")}return h}var o=c(r,e.iterator,n.arg);if("throw"===o.type)return n.method="throw",n.arg=o.arg,n.delegate=null,h;var i=o.arg;return i?i.done?(n[e.resultName]=i.value,n.next=e.nextLoc,"return"!==n.method&&(n.method="next",n.arg=t),n.delegate=null,h):i:(n.method="throw",n.arg=new TypeError("iterator result is not an object"),n.delegate=null,h)}function x(e){var t={tryLoc:e[0]};1 in e&&(t.catchLoc=e[1]),2 in e&&(t.finallyLoc=e[2],t.afterLoc=e[3]),this.tryEntries.push(t)}function C(e){var t=e.completion||{};t.type="normal",delete t.arg,e.completion=t}function k(e){this.tryEntries=[{tryLoc:"root"}],e.forEach(x,this),this.reset(!0)}function L(e){if(e){var n=e[i];if(n)return n.call(e);if("function"==typeof e.next)return e;if(!isNaN(e.length)){var o=-1,s=function n(){for(;++o<e.length;)if(r.call(e,o))return n.value=e[o],n.done=!1,n;return n.value=t,n.done=!0,n};return s.next=s}}return{next:O}}function O(){return{value:t,done:!0}}return y.prototype=A.constructor=v,v.constructor=y,v[a]=y.displayName="GeneratorFunction",e.isGeneratorFunction=function(e){var t="function"==typeof e&&e.constructor;return!!t&&(t===y||"GeneratorFunction"===(t.displayName||t.name))},e.mark=function(e){return Object.setPrototypeOf?Object.setPrototypeOf(e,v):(e.__proto__=v,a in e||(e[a]="GeneratorFunction")),e.prototype=Object.create(A),e},e.awrap=function(e){return{__await:e}},b(S.prototype),S.prototype[s]=function(){return this},e.AsyncIterator=S,e.async=function(t,n,r,o){var i=new S(l(t,n,r,o));return e.isGeneratorFunction(n)?i:i.next().then((function(e){return e.done?e.value:i.next()}))},b(A),A[a]="Generator",A[i]=function(){return this},A.toString=function(){return"[object Generator]"},e.keys=function(e){var t=[];for(var n in e)t.push(n);return t.reverse(),function n(){for(;t.length;){var r=t.pop();if(r in e)return n.value=r,n.done=!1,n}return n.done=!0,n}},e.values=L,k.prototype={constructor:k,reset:function(e){if(this.prev=0,this.next=0,this.sent=this._sent=t,this.done=!1,this.delegate=null,this.method="next",this.arg=t,this.tryEntries.forEach(C),!e)for(var n in this)"t"===n.charAt(0)&&r.call(this,n)&&!isNaN(+n.slice(1))&&(this[n]=t)},stop:function(){this.done=!0;var e=this.tryEntries[0].completion;if("throw"===e.type)throw e.arg;return this.rval},dispatchException:function(e){if(this.done)throw e;var n=this;function o(r,o){return a.type="throw",a.arg=e,n.next=r,o&&(n.method="next",n.arg=t),!!o}for(var i=this.tryEntries.length-1;i>=0;--i){var s=this.tryEntries[i],a=s.completion;if("root"===s.tryLoc)return o("end");if(s.tryLoc<=this.prev){var l=r.call(s,"catchLoc"),c=r.call(s,"finallyLoc");if(l&&c){if(this.prev<s.catchLoc)return o(s.catchLoc,!0);if(this.prev<s.finallyLoc)return o(s.finallyLoc)}else if(l){if(this.prev<s.catchLoc)return o(s.catchLoc,!0)}else{if(!c)throw new Error("try statement without catch or finally");if(this.prev<s.finallyLoc)return o(s.finallyLoc)}}}},abrupt:function(e,t){for(var n=this.tryEntries.length-1;n>=0;--n){var o=this.tryEntries[n];if(o.tryLoc<=this.prev&&r.call(o,"finallyLoc")&&this.prev<o.finallyLoc){var i=o;break}}i&&("break"===e||"continue"===e)&&i.tryLoc<=t&&t<=i.finallyLoc&&(i=null);var s=i?i.completion:{};return s.type=e,s.arg=t,i?(this.method="next",this.next=i.finallyLoc,h):this.complete(s)},complete:function(e,t){if("throw"===e.type)throw e.arg;return"break"===e.type||"continue"===e.type?this.next=e.arg:"return"===e.type?(this.rval=this.arg=e.arg,this.method="return",this.next="end"):"normal"===e.type&&t&&(this.next=t),h},finish:function(e){for(var t=this.tryEntries.length-1;t>=0;--t){var n=this.tryEntries[t];if(n.finallyLoc===e)return this.complete(n.completion,n.afterLoc),C(n),h}},catch:function(e){for(var t=this.tryEntries.length-1;t>=0;--t){var n=this.tryEntries[t];if(n.tryLoc===e){var r=n.completion;if("throw"===r.type){var o=r.arg;C(n)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(e,n,r){return this.delegate={iterator:L(e),resultName:n,nextLoc:r},"next"===this.method&&(this.arg=t),h}},e}(e.exports);try{regeneratorRuntime=t}catch(e){Function("r","regeneratorRuntime = r")(t)}})),regenerator=runtime_1;function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var defineProperty=_defineProperty;function ownKeys(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,r)}return n}function _objectSpread(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?ownKeys(Object(n),!0).forEach((function(t){defineProperty(e,t,n[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):ownKeys(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))}))}return e}var ELEMENT_TYPE="card",script={props:{pk:{type:String,required:!0},stripeAccount:{type:String},apiVersion:{type:String},locale:{type:String,default:"auto"},elementsOptions:{type:Object,default:function(){return{}}},classes:{type:Object,default:function(){return{}}},elementStyle:{type:Object,default:function(){return DEFAULT_ELEMENT_STYLE}},value:{type:String},hidePostalCode:Boolean,iconStyle:{type:String,default:"default",validator:function(e){return["solid","default"].includes(e)}},hideIcon:Boolean,disabled:Boolean},data:function(){return{loading:!1,stripe:null,elements:null,element:null,card:null}},computed:{form:function(){return document.getElementById("stripe-element-form")}},mounted:function(){var e=this;loadStripeSdk(this.apiVersion,(function(){var t={stripeAccount:e.stripeAccount,apiVersion:e.apiVersion,locale:e.locale},n={classes:e.classes,style:e.elementStyle,value:e.value,hidePostalCode:e.hidePostalCode,iconStyle:e.iconStyle,hideIcon:e.hideIcon,disabled:e.disabled};e.stripe=window.Stripe(e.pk,t),e.elements=e.stripe.elements(e.elementsOptions),e.element=e.elements.create(ELEMENT_TYPE,n),e.element.mount("#stripe-element-mount-point"),e.element.on("change",(function(t){var n=document.getElementById("stripe-element-errors");t.error?n.textContent=t.error.message:n.textContent="",e.change(t)})),e.element.on("ready",e.ready),e.element.on("focus",e.focus),e.element.on("blur",e.blur),e.element.on("escape",e.escape),e.element.on("click",e.click),e.form.addEventListener("submit",(function(t){var n,r,o,i;return regenerator.async((function(s){for(;;)switch(s.prev=s.next){case 0:return s.prev=0,e.$emit("loading",!0),t.preventDefault(),n=_objectSpread({},e.element),e.amount&&(n.amount=e.amount),s.next=7,regenerator.awrap(e.stripe.createToken(n));case 7:if(r=s.sent,o=r.token,!(i=r.error)){s.next=15;break}return document.getElementById("stripe-element-errors").textContent=i.message,e.$emit("error",i),s.abrupt("return");case 15:e.$emit("token",o),s.next=22;break;case 18:s.prev=18,s.t0=s.catch(0),console.error(s.t0),e.$emit("error",s.t0);case 22:return s.prev=22,e.$emit("loading",!1),s.finish(22);case 25:case"end":return s.stop()}}),null,null,[[0,18,22,25]])}))}))},methods:{submit:function(){this.$refs.submitButtonRef.click()},change:function(e){this.$emit("element-change",e)},ready:function(e){this.$emit("element-ready",e)},focus:function(e){this.$emit("element-focus",e)},blur:function(e){this.$emit("element-blur",e)},escape:function(e){this.$emit("element-escape",e)},click:function(e){this.$emit("element-click",e)}}};function normalizeComponent(e,t,n,r,o,i,s,a,l,c){"boolean"!=typeof s&&(l=a,a=s,s=!1);const u="function"==typeof n?n.options:n;let d;if(e&&e.render&&(u.render=e.render,u.staticRenderFns=e.staticRenderFns,u._compiled=!0,o&&(u.functional=!0)),r&&(u._scopeId=r),i?(d=function(e){(e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),t&&t.call(this,l(e)),e&&e._registeredComponents&&e._registeredComponents.add(i)},u._ssrRegister=d):t&&(d=s?function(e){t.call(this,c(e,this.$root.$options.shadowRoot))}:function(e){t.call(this,a(e))}),d)if(u.functional){const e=u.render;u.render=function(t,n){return d.call(n),e(t,n)}}else{const e=u.beforeCreate;u.beforeCreate=e?[].concat(e,d):[d]}return n}const isOldIE="undefined"!=typeof navigator&&/msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());function createInjector(e){return(e,t)=>addStyle(e,t)}let HEAD;const styles={};function addStyle(e,t){const n=isOldIE?t.media||"default":e,r=styles[n]||(styles[n]={ids:new Set,styles:[]});if(!r.ids.has(e)){r.ids.add(e);let n=t.source;if(t.map&&(n+="\n/*# sourceURL="+t.map.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(t.map))))+" */"),r.element||(r.element=document.createElement("style"),r.element.type="text/css",t.media&&r.element.setAttribute("media",t.media),void 0===HEAD&&(HEAD=document.head||document.getElementsByTagName("head")[0]),HEAD.appendChild(r.element)),"styleSheet"in r.element)r.styles.push(n),r.element.styleSheet.cssText=r.styles.filter(Boolean).join("\n");else{const e=r.ids.size-1,t=document.createTextNode(n),o=r.element.childNodes;o[e]&&r.element.removeChild(o[e]),o.length?r.element.insertBefore(t,o[e]):r.element.appendChild(t)}}}const __vue_script__=script;var __vue_render__=function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("form",{attrs:{id:"stripe-element-form"}},[t("div",{attrs:{id:"stripe-element-mount-point"}}),this._v(" "),this._t("stripe-element-errors",[t("div",{attrs:{id:"stripe-element-errors",role:"alert"}})]),this._v(" "),t("button",{ref:"submitButtonRef",staticClass:"hide",attrs:{type:"submit"}})],2)])},__vue_staticRenderFns__=[];__vue_render__._withStripped=!0;const __vue_inject_styles__=function(e){e&&e("data-v-38ea8814_0",{source:"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/**\n * The CSS shown here will not be introduced in the Quickstart guide, but shows\n * how you can use CSS to style your Element's container.\n */\n.StripeElement[data-v-38ea8814] {\n  box-sizing: border-box;\n\n  height: 40px;\n\n  padding: 10px 12px;\n\n  border: 1px solid transparent;\n  border-radius: 4px;\n  background-color: white;\n\n  box-shadow: 0 1px 3px 0 #e6ebf1;\n  -webkit-transition: box-shadow 150ms ease;\n  transition: box-shadow 150ms ease;\n}\n.StripeElement--focus[data-v-38ea8814] {\n  box-shadow: 0 1px 3px 0 #cfd7df;\n}\n.StripeElement--invalid[data-v-38ea8814] {\n  border-color: #fa755a;\n}\n.StripeElement--webkit-autofill[data-v-38ea8814] {\n  background-color: #fefde5 !important;\n}\n.hide[data-v-38ea8814] {\n  visibility: hidden;\n}\n",map:{version:3,sources:["/home/runner/work/vue-stripe/vue-stripe/src/elements/Card.vue"],names:[],mappings:";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAiKA;;;EAGA;AACA;EACA,sBAAA;;EAEA,YAAA;;EAEA,kBAAA;;EAEA,6BAAA;EACA,kBAAA;EACA,uBAAA;;EAEA,+BAAA;EACA,yCAAA;EACA,iCAAA;AACA;AAEA;EACA,+BAAA;AACA;AAEA;EACA,qBAAA;AACA;AAEA;EACA,oCAAA;AACA;AAEA;EACA,kBAAA;AACA",file:"Card.vue",sourcesContent:["<template>\n  <div>\n    <form id=\"stripe-element-form\">\n      <div id=\"stripe-element-mount-point\"></div>\n      <slot name=\"stripe-element-errors\">\n        <div id=\"stripe-element-errors\" role=\"alert\"></div>\n      </slot>\n      <button ref=\"submitButtonRef\" type=\"submit\" class=\"hide\"></button>\n    </form>\n  </div>\n</template>\n\n<script>\nimport { loadStripeSdk } from '../load-stripe-sdk';\nimport { DEFAULT_ELEMENT_STYLE } from '../constants';\nconst ELEMENT_TYPE = 'card';\nexport default {\n  props: {\n    pk: {\n      type: String,\n      required: true,\n    },\n    stripeAccount: {\n      type: String,\n    },\n    apiVersion: {\n      type: String,\n    },\n    locale: {\n      type: String,\n      default: 'auto',\n    },\n    elementsOptions: {\n      type: Object,\n      default: () => ({}),\n    },\n    // element specific options\n    classes: {\n      type: Object,\n      default: () => ({}),\n    },\n    elementStyle: {\n      type: Object,\n      default: () => (DEFAULT_ELEMENT_STYLE),\n    },\n    value: {\n      type: String,\n    },\n    hidePostalCode: Boolean,\n    iconStyle: {\n      type: String,\n      default: 'default',\n      validator: value => ['solid', 'default'].includes(value),\n    },\n    hideIcon: Boolean,\n    disabled: Boolean,\n  },\n  data () {\n    return {\n      loading: false,\n      stripe: null,\n      elements: null,\n      element: null,\n      card: null,\n    };\n  },\n  computed: {\n    form () {\n      return document.getElementById('stripe-element-form');\n    },\n  },\n  mounted () {\n    loadStripeSdk(this.apiVersion, () => {\n      const stripeOptions = {\n        stripeAccount: this.stripeAccount,\n        apiVersion: this.apiVersion,\n        locale: this.locale,\n      };\n      const createOptions = {\n        classes: this.classes,\n        style: this.elementStyle,\n        value: this.value,\n        hidePostalCode: this.hidePostalCode,\n        iconStyle: this.iconStyle,\n        hideIcon: this.hideIcon,\n        disabled: this.disabled,\n      };\n\n      this.stripe = window.Stripe(this.pk, stripeOptions);\n      this.elements = this.stripe.elements(this.elementsOptions);\n      this.element = this.elements.create(ELEMENT_TYPE, createOptions);\n      this.element.mount('#stripe-element-mount-point');\n\n      this.element.on('change', (event) => {\n        var displayError = document.getElementById('stripe-element-errors');\n        if (event.error) {\n          displayError.textContent = event.error.message;\n        } else {\n          displayError.textContent = '';\n        }\n        this.change(event);\n      });\n\n      this.element.on('ready', this.ready);\n      this.element.on('focus', this.focus);\n      this.element.on('blur', this.blur);\n      this.element.on('escape', this.escape);\n      this.element.on('click', this.click);\n\n      this.form.addEventListener('submit', async (event) => {\n        try {\n          this.$emit('loading', true);\n          event.preventDefault();\n          const data = {\n            ...this.element,\n          };\n          if (this.amount) data.amount = this.amount;\n          const { token, error } = await this.stripe.createToken(data);\n          if (error) {\n            const errorElement = document.getElementById('stripe-element-errors');\n            errorElement.textContent = error.message;\n            this.$emit('error', error);\n            return;\n          }\n          this.$emit('token', token);\n        } catch (error) {\n          console.error(error);\n          this.$emit('error', error);\n        } finally {\n          this.$emit('loading', false);\n        }\n      });\n    });\n  },\n  methods: {\n    submit () {\n      this.$refs.submitButtonRef.click();\n    },\n    change (e) {\n      this.$emit('element-change', e);\n    },\n    ready (e) {\n      this.$emit('element-ready', e);\n    },\n    focus (e) {\n      this.$emit('element-focus', e);\n    },\n    blur (e) {\n      this.$emit('element-blur', e);\n    },\n    escape (e) {\n      this.$emit('element-escape', e);\n    },\n    click (e) {\n      this.$emit('element-click', e);\n    },\n  },\n};\n<\/script>\n\n<style scoped>\n/**\n * The CSS shown here will not be introduced in the Quickstart guide, but shows\n * how you can use CSS to style your Element's container.\n */\n.StripeElement {\n  box-sizing: border-box;\n\n  height: 40px;\n\n  padding: 10px 12px;\n\n  border: 1px solid transparent;\n  border-radius: 4px;\n  background-color: white;\n\n  box-shadow: 0 1px 3px 0 #e6ebf1;\n  -webkit-transition: box-shadow 150ms ease;\n  transition: box-shadow 150ms ease;\n}\n\n.StripeElement--focus {\n  box-shadow: 0 1px 3px 0 #cfd7df;\n}\n\n.StripeElement--invalid {\n  border-color: #fa755a;\n}\n\n.StripeElement--webkit-autofill {\n  background-color: #fefde5 !important;\n}\n\n.hide {\n  visibility: hidden;\n}\n</style>\n"]},media:void 0})},__vue_scope_id__="data-v-38ea8814",__vue_module_identifier__=void 0,__vue_is_functional_template__=!1,__vue_component__=normalizeComponent({render:__vue_render__,staticRenderFns:__vue_staticRenderFns__},__vue_inject_styles__,__vue_script__,__vue_scope_id__,!1,void 0,!1,createInjector,void 0,void 0);var index$1={install:function(e,t){var n=t.pk,r=t.stripeAccount,o=t.apiVersion,i=t.locale,s=t.elementsOptions,a=window.Stripe(n,{stripeAccount:r,apiVersion:o,locale:i}),l=a.elements(s);e.prototype.$stripe=a,e.prototype.$stripeElements=l}};exports.StripeCheckout=index,exports.StripeElementCard=__vue_component__,exports.StripeElementsPlugin=index$1;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Main.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/Main.vue?vue&type=script&lang=js& ***!
@@ -1611,6 +1624,60 @@ __webpack_require__.r(__webpack_exports__);
 
       window.alert("Produkten har lagts till.");
       location.reload();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/StripeCheckout.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/StripeCheckout.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_stripe_vue_stripe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue-stripe/vue-stripe */ "./node_modules/@vue-stripe/vue-stripe/dist/index.js");
+/* harmony import */ var _vue_stripe_vue_stripe__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_vue_stripe_vue_stripe__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    StripeCheckout: _vue_stripe_vue_stripe__WEBPACK_IMPORTED_MODULE_0__["StripeCheckout"]
+  },
+  data: function data() {
+    this.publishableKey = 'pk_test_51HMTldKEUIKsCRFh6xC4GVU96lW0bbRsLDsYszzZEJUwLsSgNK3pOYv1RLWfBHHkVHONcNQdtJkB6mhXvQBkmdxw00nd03I4rP';
+    return {
+      loading: false,
+      lineItems: [{
+        price: 'price_1IEtvMKEUIKsCRFhp9XdxsgC',
+        quantity: 1
+      }],
+      successURL: 'http://localhost:8000/confirmation',
+      cancelURL: 'https://google.se'
+    };
+  },
+  methods: {
+    // You will be redirected to Stripe's secure checkout page
+    submit: function submit() {
+      this.$refs.checkoutRef.redirectToCheckout();
     }
   }
 });
@@ -4865,55 +4932,59 @@ var render = function() {
           _c("br"),
           _vm._v(" "),
           _vm.cartLength
-            ? _c("div", { staticClass: "other-container" }, [
-                _c(
-                  "h2",
-                  {
-                    staticStyle: { "text-align": "center", "font-size": "24px" }
-                  },
-                  [_vm._v("Betalningalternativ")]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("Välj en alternativ:")]),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "radio",
-                    id: "card",
-                    name: "payment",
-                    value: "option1"
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "card" } }, [_vm._v("Kort")]),
-                _c("br"),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "radio",
-                    id: "swish",
-                    name: "payment",
-                    value: "option2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "swish" } }, [_vm._v("Swish")]),
-                _c("br"),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "radio",
-                    id: "cash",
-                    name: "payment",
-                    value: "option3"
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "cash" } }, [
-                  _vm._v("Kontakt vid leverans")
-                ]),
-                _c("br")
-              ])
+            ? _c(
+                "div",
+                { staticClass: "other-container" },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticStyle: {
+                        "text-align": "center",
+                        "font-size": "24px"
+                      }
+                    },
+                    [_vm._v("Betalningalternativ")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Välj en alternativ:")]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    { attrs: { to: { name: "stripeCheckout" } } },
+                    [
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "stripe",
+                          name: "payment",
+                          value: "option2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "stripe" } }, [
+                        _vm._v("Stripe")
+                      ])
+                    ]
+                  ),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: {
+                      type: "radio",
+                      id: "cash",
+                      name: "payment",
+                      value: "option3"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "cash" } }, [
+                    _vm._v("Kontakt vid leverans")
+                  ]),
+                  _c("br")
+                ],
+                1
+              )
             : _vm._e()
         ],
         2
@@ -4923,11 +4994,16 @@ var render = function() {
       _c("br"),
       _vm._v(" "),
       _vm.cartLength
-        ? _c("div", { staticClass: "proceed" }, [
-            _c("button", { on: { click: _vm.placeOrder } }, [
-              _vm._v("Bekräfta")
-            ])
-          ])
+        ? _c(
+            "div",
+            { staticClass: "proceed" },
+            [
+              _c("router-link", { attrs: { to: { name: "confirmation" } } }, [
+                _vm._v("Bekräfta!")
+              ])
+            ],
+            1
+          )
         : _vm._e()
     ])
   ])
@@ -5786,6 +5862,52 @@ var render = function() {
       ])
     ])
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/StripeCheckout.vue?vue&type=template&id=8aad33dc&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/StripeCheckout.vue?vue&type=template&id=8aad33dc& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("stripe-checkout", {
+        ref: "checkoutRef",
+        attrs: {
+          mode: "payment",
+          pk: _vm.publishableKey,
+          "line-items": _vm.lineItems,
+          "success-url": _vm.successURL,
+          "cancel-url": _vm.cancelURL
+        },
+        on: {
+          loading: function(v) {
+            return (_vm.loading = v)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.submit } }, [_vm._v("Pay now!")])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21143,9 +21265,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Admin */ "./resources/js/views/Admin.vue");
 /* harmony import */ var _views_Cart__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/Cart */ "./resources/js/views/Cart.vue");
 /* harmony import */ var _views_Checkingout__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/Checkingout */ "./resources/js/views/Checkingout.vue");
+/* harmony import */ var _views_StripeCheckout__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/StripeCheckout */ "./resources/js/views/StripeCheckout.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -21171,6 +21295,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/register',
     name: 'register',
     component: _views_Register__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }, {
+    path: '/stripeCheckout',
+    name: 'stripeCheckout',
+    component: _views_StripeCheckout__WEBPACK_IMPORTED_MODULE_13__["default"]
   }, {
     path: '/products/:id',
     name: 'single-products',
@@ -22556,6 +22684,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleProduct_vue_vue_type_template_id_55d32178_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleProduct_vue_vue_type_template_id_55d32178_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/StripeCheckout.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/views/StripeCheckout.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StripeCheckout_vue_vue_type_template_id_8aad33dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StripeCheckout.vue?vue&type=template&id=8aad33dc& */ "./resources/js/views/StripeCheckout.vue?vue&type=template&id=8aad33dc&");
+/* harmony import */ var _StripeCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StripeCheckout.vue?vue&type=script&lang=js& */ "./resources/js/views/StripeCheckout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StripeCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StripeCheckout_vue_vue_type_template_id_8aad33dc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StripeCheckout_vue_vue_type_template_id_8aad33dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/StripeCheckout.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/StripeCheckout.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/views/StripeCheckout.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StripeCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./StripeCheckout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/StripeCheckout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StripeCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/StripeCheckout.vue?vue&type=template&id=8aad33dc&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/views/StripeCheckout.vue?vue&type=template&id=8aad33dc& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StripeCheckout_vue_vue_type_template_id_8aad33dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./StripeCheckout.vue?vue&type=template&id=8aad33dc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/StripeCheckout.vue?vue&type=template&id=8aad33dc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StripeCheckout_vue_vue_type_template_id_8aad33dc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StripeCheckout_vue_vue_type_template_id_8aad33dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
