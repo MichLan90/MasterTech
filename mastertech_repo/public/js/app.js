@@ -1167,7 +1167,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1178,11 +1177,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     localStorage.removeItem('bigStore.cart');
     cartLength = 0;
-  },
-  methods: {
-    reload: function reload() {
-      location.reload();
-    }
   }
 });
 
@@ -1716,7 +1710,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Po
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\n.isLoggedin a {\r\n    color: white;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\r\n    list-style: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#cartLength {\r\n    margin-bottom: 5px;\r\n    font-size: 18px;\r\n    margin-left: 10px;\n}\n#navbarSupportedContent .ml-auto {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0 20px 0 0;\r\n    color: white;\r\n    background-color: #0c2a35;\n}\n#navbarSupportedContent .mr-auto {\r\n    width: 50%;\r\n    justify-content: flex-start;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0 0 0 20px;\r\n    color: white;\r\n    background-color: #0c2a35;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: white;\r\n    padding: 10px;\r\n    list-style: none;\n}\n.nav-link:hover {\r\n    color: white;\r\n    background-color: #3b6374;\r\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\r\n    cursor: pointer;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\nspan {\r\n    list-style: none;\n}\n.pre-footer { \r\n    text-align: center;\r\n    font-family: 'Roboto', sans-serif;\r\n    margin-top: 100px;\r\n    background-color: #0c2a35;\r\n    color: white;\r\n    width: 100%;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\n}\nfooter {\r\n    font-family: 'Roboto', sans-serif;\r\n    background-color: #3b6374;\r\n    color: #E6E6E6;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    flex-direction: row;\r\n    margin: 0;\n}\n.column {\r\n    margin: 45px;\r\n    width: 20%;\r\n    height: fit-content;\n}\n.column a {\r\n    color: white;\n}\n.social-link:hover {\r\n    background-color: white;\n}\n@media only screen and (max-width: 768px) {\nfooter {\r\n        flex-direction: column;\r\n        text-align: center;\n}\n.column {\r\n        margin: 0;\r\n        padding: 20px;\r\n        width: 95%;\n}\n.nav-link {\r\n        padding: 0;\n}\n}\n@media only screen and (max-width: 412px) {\n.column {\r\n        padding: 0px;\r\n        width: 100%;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.container {\r\n    font-family: 'Roboto', sans-serif;\n}\n.isLoggedin a {\r\n    color: white;\n}\nnav {\r\n    width: 100%;\r\n    background-color: black;\r\n    color: white;\r\n    margin: 0;\n}\nnav .container a {\r\n    text-decoration: none;\r\n    list-style: none;\n}\n#navbarSupportedContent {\r\n    width: 100%;\r\n    display: flex;\n}\n#cartLength {\r\n    margin-bottom: 5px;\r\n    font-size: 18px;\r\n    margin-left: 10px;\n}\n#navbarSupportedContent .ml-auto {\r\n    width: 50%;\r\n    justify-content: flex-end;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0 20px 0 0;\r\n    color: white;\r\n    background-color: #0c2a35;\n}\n#navbarSupportedContent .mr-auto {\r\n    width: 50%;\r\n    justify-content: flex-start;\r\n    margin: 0;\r\n    display: flex;\r\n    padding: 0 0 0 20px;\r\n    color: white;\r\n    background-color: #0c2a35;\n}\n.nav-link {\r\n    width: 20%;\r\n    height: 20px;\r\n    text-align: center;\r\n    color: white;\r\n    padding: 10px;\r\n    list-style: none;\n}\n.nav-link:hover {\r\n    color: white;\r\n    background-color: #3b6374;\r\n    transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);\r\n    cursor: pointer;\n}\n.navbar-brand {\r\n    font-family: 'Potta One', cursive;\r\n    font-size: 24px;\r\n    color: white;\r\n    padding: 15px;\n}\nspan {\r\n    list-style: none;\n}\n.pre-footer { \r\n    text-align: center;\r\n    font-family: 'Roboto', sans-serif;\r\n    margin-top: 100px;\r\n    background-color: #0c2a35;\r\n    color: white;\r\n    width: 100%;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\n}\nfooter {\r\n    font-family: 'Roboto', sans-serif;\r\n    background-color: #3b6374;\r\n    color: #E6E6E6;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    flex-direction: row;\r\n    margin: 0;\n}\n.column {\r\n    margin: 45px;\r\n    width: 20%;\r\n    height: fit-content;\n}\n.column a {\r\n    color: white;\n}\n.social-link:hover {\r\n    background-color: white;\n}\n@media only screen and (max-width: 768px) {\nfooter {\r\n        flex-direction: column;\r\n        text-align: center;\n}\n.column {\r\n        margin: 0;\r\n        padding: 20px;\r\n        width: 95%;\n}\n.nav-link {\r\n        padding: 0;\n}\n}\n@media only screen and (max-width: 412px) {\n#navbarSupportedContent .ml-auto {\r\n        width: 100%;\n}\n.nav-link {\r\n        width: 100%;\r\n        height: 30px;\n}\n.column {\r\n        padding: 0px;\r\n        width: 100%;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -4804,10 +4798,6 @@ var render = function() {
             _vm._v(" "),
             _c("router-link", { attrs: { to: { path: "/" } } }, [
               _vm._v("GO BACK")
-            ]),
-            _vm._v(" "),
-            _c("button", { on: { click: _vm.reload } }, [
-              _vm._v("Go back to store")
             ])
           ],
           1

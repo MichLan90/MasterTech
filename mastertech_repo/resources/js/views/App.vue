@@ -260,6 +260,13 @@ footer {
     }
 }
 @media only screen and (max-width: 412px) {
+    #navbarSupportedContent .ml-auto {
+        width: 100%;
+    }
+    .nav-link {
+        width: 100%;
+        height: 30px;
+    }
     .column {
         padding: 0px;
         width: 100%;

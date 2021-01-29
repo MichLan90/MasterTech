@@ -5,7 +5,6 @@
                     <span class="title"><strong>Thank You!</strong></span><br>
                     <span class="medium-text">Your order has been placed.</span><br>
                     <router-link :to="{ path: '/' }">GO BACK</router-link>
-                    <button @click="reload">Go back to store</button>
                 </h2>
             </div>
         </div>
@@ -23,11 +22,6 @@
                 localStorage.removeItem('bigStore.cart')
                 cartLength = 0;
             },
-            methods : {
-                reload() {
-                    location.reload();
-                }
-            }
         }
     </script>
 
