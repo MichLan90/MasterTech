@@ -6,6 +6,7 @@
       mode="payment"
       :pk="publishableKey"
       :line-items="lineItems"
+      :amount_total="totalAmount"
       :success-url="successURL"
       :cancel-url="cancelURL"
       @loading="v => loading = v"
@@ -20,16 +21,23 @@ export default {
   components: {
     StripeCheckout,
   },
+
+    
   data () {
     this.publishableKey = 'pk_test_51HMTldKEUIKsCRFh6xC4GVU96lW0bbRsLDsYszzZEJUwLsSgNK3pOYv1RLWfBHHkVHONcNQdtJkB6mhXvQBkmdxw00nd03I4rP';
+    let orderArray = JSON.parse(localStorage.getItem('bigStore.cart'));
+    let formattedProducts = orderArray.map((product) => {
+            return {
+                price: product.product_api, // The id of the one-time price you created in your Stripe dashboard
+                quantity: product.quantity,
+            }
+            
+        })
+    console.log(JSON.stringify(formattedProducts));
+    
     return {
       loading: false,
-      lineItems: [
-        {
-          price: 'price_1IEtvMKEUIKsCRFhp9XdxsgC',
-          quantity: 1,
-        },
-      ],
+      lineItems: formattedProducts,
       successURL: 'http://localhost:8000/confirmation',
       cancelURL: 'https://google.se',
     };
@@ -38,8 +46,12 @@ export default {
         // You will be redirected to Stripe's secure checkout page
      submit () {
          this.$refs.checkoutRef.redirectToCheckout();
-    },  
     },
+
+    },
+    
+      
+    
 };
 
 
