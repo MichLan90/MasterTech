@@ -62,7 +62,8 @@
                     product_id: this.product.id,
                     quantity: this.quantity,
                     product_price: this.product.price,
-                    product_img : this.product.image
+                    product_img : this.product.image,
+                    product_api : this.product.api
                 }
 
                 if(!localStorage.getItem('bigStore.cart')) {

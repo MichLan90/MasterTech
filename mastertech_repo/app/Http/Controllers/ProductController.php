@@ -19,7 +19,8 @@ class ProductController extends Controller
             'description' => $request->description,
             'units' => $request->units,
             'price' => $request->price,
-            'image' => $request->image
+            'image' => $request->image,
+            'api' => $request->api
         ]);
 
         return response()->json([
@@ -46,7 +47,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $status = $product->update(
-            $request->only(['name', 'description', 'units', 'price', 'image'])
+            $request->only(['name', 'description', 'units', 'price', 'image', 'api'])
         );
 
         return response()->json([
