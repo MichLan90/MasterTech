@@ -1,6 +1,7 @@
 <template>
   <!-- stripe-checkout -->
   <div>
+  <div id="cont-stripe">
     <stripe-checkout
       ref="checkoutRef"
       mode="payment"
@@ -10,7 +11,8 @@
       :cancel-url="cancelURL"
       @loading="v => loading = v"
     />
-    <button @click="submit">Pay now!</button>
+    <button class="stripe-btn" @click="submit">Gå vidare till Stripe betalning</button>
+  </div>
   </div>
 </template>
 
@@ -47,3 +49,26 @@ export default {
 
 
 </script>
+
+<style>
+    #cont-stripe {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+    .stripe-btn {
+      margin-top: 100px;
+        border: none;
+        background-color: black;
+        color: white;
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    .stripe-btn:hover {
+        transition: 0.4s all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        background-color: white;
+        color: black;
+    }
+</style>
